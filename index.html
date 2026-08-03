@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>パーソナルCFO｜あなた専属の、お金の参謀</title>
+<style>
+  :root{
+    --teal:#0d9488; --teal-d:#0f766e; --teal-l:#5eead4; --teal-bg:#f0fdfa;
+    --ink:#1f2937; --ink-sub:#4b5563; --line:#e5e7eb; --white:#fff;
+    --amber:#b45309; --amber-bg:#fffbeb; --rose:#e11d48; --rose-bg:#fff1f2;
+    --gold:#a16207;
+    --shadow:0 10px 30px rgba(13,148,136,.10);
+    --shadow-img:0 16px 40px rgba(15,23,42,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
+    color:var(--ink);background:var(--white);line-height:1.95;font-size:16px;letter-spacing:.02em;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:620px;margin:0 auto;padding:0 20px;}
+  img{max-width:100%;display:block;}
+  .sec{padding:56px 0;}
+  .kicker{font-size:12.5px;font-weight:800;color:var(--teal);letter-spacing:.14em;margin-bottom:12px;}
+  h2{font-size:24px;font-weight:900;line-height:1.65;margin-bottom:20px;}
+  h2 em{font-style:normal;color:var(--teal-d);}
+  .lead{font-size:15.5px;color:var(--ink-sub);}
+
+  /* FV */
+  .fv{position:relative;color:#fff;overflow:hidden;min-height:88vh;display:flex;align-items:flex-end;}
+  .fv-bg{position:absolute;inset:0;z-index:0;}
+  .fv-bg img{width:100%;height:100%;object-fit:cover;object-position:center 60%;}
+  .fv-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,60,55,.5),rgba(11,80,73,.96));}
+  .fv .wrap{position:relative;z-index:1;padding-top:40px;padding-bottom:48px;width:100%;}
+  .badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);
+    color:#fff;font-size:12.5px;font-weight:700;padding:7px 15px;border-radius:999px;letter-spacing:.08em;margin-bottom:20px;backdrop-filter:blur(4px);}
+  .fv h1{font-size:30px;font-weight:900;line-height:1.5;margin-bottom:20px;text-shadow:0 2px 20px rgba(0,0,0,.25);}
+  .fv h1 .mark{color:#a7f3e0;}
+  .fv .fv-lead{font-size:15.5px;line-height:2;color:rgba(255,255,255,.96);text-shadow:0 1px 12px rgba(0,0,0,.3);}
+
+  /* 構造比較 */
+  .compare{background:var(--teal-bg);}
+  .ctable{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 24px rgba(15,23,42,.07);margin:22px 0;}
+  .crow{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);}
+  .crow:last-child{border-bottom:none;}
+  .crow.head{background:var(--teal-d);color:#fff;}
+  .crow.head div{font-size:13px;font-weight:800;padding:14px 12px;text-align:center;}
+  .cq{grid-column:1 / -1;background:#f8fafc;font-size:13px;font-weight:800;color:var(--ink-sub);padding:11px 14px;border-bottom:1px solid var(--line);}
+  .crow .cl,.crow .cr{padding:14px 12px;font-size:13.5px;line-height:1.7;}
+  .crow .cl{color:#9ca3af;border-right:1px solid var(--line);}
+  .crow .cr{color:var(--ink);font-weight:700;}
+  .crow .cr b{color:var(--teal-d);}
+  .punch{font-size:19px;font-weight:900;line-height:1.85;text-align:center;margin-top:26px;}
+  .punch .hl{color:var(--teal-d);}
+
+  /* ROI */
+  .roi-list{display:flex;flex-direction:column;gap:14px;margin:20px 0;}
+  .roi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,.05);}
+  .roi .rt{font-size:14px;font-weight:700;color:var(--ink-sub);line-height:1.75;margin-bottom:6px;}
+  .roi .rv{font-size:27px;font-weight:900;color:var(--teal-d);line-height:1.2;}
+  .roi .rv small{font-size:15px;}
+  .note{font-size:11.5px;color:#9ca3af;line-height:1.75;margin-top:14px;}
+
+  /* 相場 */
+  .market{background:#0b504a;color:#fff;}
+  .market h2{color:#fff;}
+  .market .kicker{color:var(--teal-l);}
+  .mrow{display:flex;justify-content:space-between;gap:14px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:14.5px;}
+  .mrow:last-child{border-bottom:none;}
+  .mrow .ml{color:rgba(255,255,255,.86);}
+  .mrow .mr{font-weight:800;white-space:nowrap;color:#7dd3c1;}
+
+  /* プラン */
+  .plans{display:flex;flex-direction:column;gap:18px;margin:24px 0;}
+  .plan{border:1.5px solid var(--line);border-radius:20px;padding:24px 20px;background:#fff;position:relative;}
+  .plan.best{border:2.5px solid var(--teal);box-shadow:0 14px 34px rgba(13,148,136,.16);}
+  .plan .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;
+    font-size:12.5px;font-weight:800;padding:6px 18px;border-radius:999px;white-space:nowrap;}
+  .plan .pn{font-size:17px;font-weight:900;margin-bottom:4px;}
+  .plan.best .pn{color:var(--teal-d);font-size:20px;}
+  .plan .pfor{font-size:12.5px;color:#9ca3af;margin-bottom:12px;}
+  .plan .pp{font-size:34px;font-weight:900;line-height:1.15;margin-bottom:14px;}
+  .plan.best .pp{font-size:42px;color:var(--teal-d);}
+  .plan .pp small{font-size:16px;font-weight:800;}
+  .plan ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .plan li{display:flex;gap:9px;font-size:14px;line-height:1.65;color:var(--ink-sub);}
+  .plan li .ck{color:var(--teal);font-weight:900;flex:0 0 auto;}
+  .plan li.off{color:#c7cdd4;}
+  .plan li.off .ck{color:#d7dce1;}
+  .plan.best li{color:var(--ink);font-weight:600;}
+  .plan .limit{font-size:11.5px;color:#9ca3af;margin-top:12px;}
+
+  .why-mid{background:var(--teal-bg);border-left:4px solid var(--teal);border-radius:0 14px 14px 0;padding:20px;margin-top:22px;}
+  .why-mid p{font-size:15px;line-height:1.9;color:var(--ink);}
+  .why-mid strong{color:var(--teal-d);}
+
+  /* 分解価格 */
+  .split{background:#fff;border:1.5px solid var(--teal-l);border-radius:18px;padding:24px 20px;margin-top:22px;text-align:center;}
+  .split .big{font-size:20px;font-weight:900;color:var(--teal-d);line-height:1.7;margin-bottom:8px;}
+  .split .sub{font-size:14.5px;color:var(--ink-sub);line-height:1.85;}
+
+  /* サロン */
+  .salon{background:var(--amber-bg);border:1px solid #fcd34d;border-radius:18px;padding:24px 20px;margin-top:26px;}
+  .salon .st{font-size:15px;font-weight:800;color:var(--amber);margin-bottom:10px;}
+  .salon p{font-size:14.5px;color:var(--ink-sub);line-height:1.9;}
+  .salon a{display:inline-block;margin-top:12px;color:var(--amber);font-weight:800;font-size:14px;text-decoration:none;}
+
+  /* 締め */
+  .closing{background:#0b504a;color:#fff;text-align:center;}
+  .closing h2{color:#fff;font-size:21px;}
+  .closing p{font-size:15px;color:rgba(255,255,255,.9);line-height:1.95;}
+  .closing .hl{color:#7dd3c1;font-weight:800;}
+  .cta{display:block;width:100%;background:var(--teal);color:#fff;border:none;font-family:inherit;
+    font-size:19px;font-weight:900;padding:22px;border-radius:16px;cursor:pointer;text-align:center;text-decoration:none;
+    box-shadow:var(--shadow);margin:26px 0 10px;transition:transform .15s ease,background .2s ease;letter-spacing:.03em;}
+  .cta:hover{background:var(--teal-d);transform:translateY(-2px);}
+  .cta .cs{display:block;font-size:12.5px;font-weight:600;opacity:.9;margin-top:5px;}
+  .cta-note{text-align:center;font-size:12.5px;color:#9ca3af;}
+
+  /* 成果物ギャラリー */
+  .docs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0;}
+  .docs figure{border:1px solid var(--line);border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:#fff;box-shadow:0 6px 16px rgba(15,23,42,.07);}
+  .docs img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+  .vol{text-align:center;background:#fff;border:1.5px solid var(--teal);border-radius:18px;padding:22px;margin-top:16px;box-shadow:var(--shadow);}
+  .vol .big{font-size:21px;font-weight:900;color:var(--teal-d);display:block;margin-bottom:4px;}
+  .vol .big em{font-style:normal;font-size:36px;vertical-align:-3px;}
+  .vol .sub{font-size:14px;color:var(--ink-sub);font-weight:600;}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 44px;text-align:center;}
+  footer p{font-size:11.5px;color:#9ca3af;line-height:1.9;}
+  @media(max-width:420px){
+    .fv h1{font-size:25px;} h2{font-size:21px;} body{font-size:15px;}
+    .plan.best .pp{font-size:36px;} .crow .cl,.crow .cr{font-size:12.5px;padding:12px 9px;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- FV -->
+  <section class="fv">
+    <div class="fv-bg"><img src="images/hero-venue.jpg" alt="お金の相談の現場"></div>
+    <div class="wrap">
+      <span class="badge">パーソナルCFO</span>
+      <h1>商品を、売りません。<br><span class="mark">だから、全部お話しできます。</span></h1>
+      <p class="fv-lead">
+        あなたの人生のお金を、まるごと1枚の地図に。<br>
+        全44ページの設計図をつくり、<br>
+        半年に一度、隣に座って一緒に見直す。<br>
+        ——あなた専属の、お金の参謀です。
+      </p>
+    </div>
+  </section>
+
+  <!-- ① 構造比較 -->
+  <section class="sec compare">
+    <div class="wrap">
+      <div class="kicker">なぜ、有料なのか</div>
+      <h2>正直に、<br><em>お話しします。</em></h2>
+      <p class="lead">お金の相談を、無料で提供している会社はたくさんあります。<br>ではなぜ、私たちは費用をいただくのか。<br>答えは、報酬の出どころが違うからです。</p>
+
+      <div class="ctable">
+        <div class="crow head"><div>無料の相談</div><div>fulfull</div></div>
+        <div class="cq">誰がお金を払っているか</div>
+        <div class="crow"><div class="cl">契約が決まったときの販売手数料</div><div class="cr"><b>あなたが払う相談料だけ</b></div></div>
+        <div class="cq">提案できる範囲</div>
+        <div class="crow"><div class="cl">その会社が扱える商品の中から</div><div class="cr"><b>商品を持たないので、全部</b></div></div>
+        <div class="cq">「今のままで大丈夫です」と言えるか</div>
+        <div class="crow"><div class="cl">構造上、言いにくい</div><div class="cr"><b>言える</b></div></div>
+        <div class="cq">「やめたほうがいい」と言えるか</div>
+        <div class="crow"><div class="cl">構造上、言いにくい</div><div class="cr"><b>言える</b></div></div>
+        <div class="cq">成果物</div>
+        <div class="crow"><div class="cl">シミュレーション数ページ</div><div class="cr"><b>全44ページの設計図</b></div></div>
+        <div class="cq">その後</div>
+        <div class="crow"><div class="cl">担当者の異動・転職で途切れる</div><div class="cr"><b>半年〜1年ごとに引き直す</b></div></div>
+      </div>
+
+      <p class="punch">無料の相談は、無料ではありません。<br>どこかで、誰かが払っています。<br><br><span class="hl">私たちがいただくのは、<br>何も売られない場所で、<br>家計の全部を見せられる権利の値段です。</span></p>
+    </div>
+  </section>
+
+  <!-- 成果物 -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="kicker">お渡しするもの</div>
+      <h2>あなたの人生が、<br><em>1冊の設計図になります。</em></h2>
+      <div class="docs">
+        <figure><img src="images/doc-suii-12.png" alt="資産推移"></figure>
+        <figure><img src="images/doc-cfgraph-15.png" alt="収支の内訳"></figure>
+        <figure><img src="images/doc-cf-13.png" alt="キャッシュフロー表"></figure>
+        <figure><img src="images/doc-hosho-20.png" alt="保障の過不足"></figure>
+      </div>
+      <div class="vol">
+        <span class="big">これで、<em>全44</em>ページ。</span>
+        <span class="sub">100年分の資産推移と、60年分のキャッシュフロー。</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② ROI -->
+  <section class="sec" style="background:var(--teal-bg);">
+    <div class="wrap">
+      <div class="kicker">高いか、安いか</div>
+      <h2>それは、<br><em>いくら戻るかで決まります。</em></h2>
+      <p class="lead">たとえば、こんな改善が見つかります。</p>
+      <div class="roi-list">
+        <div class="roi"><div class="rt">住宅ローンの金利が0.5%違うと<br>（3,500万円・35年）</div><div class="rv">約333<small>万円</small></div></div>
+        <div class="roi"><div class="rt">新NISAを正しく使い切ると<br>（月3万円・20年）本来かかる税金が</div><div class="rv">約77<small>万円 → 0円</small></div></div>
+        <div class="roi"><div class="rt">退職金2,000万円は、受け取り方ひとつで<br>税負担が</div><div class="rv">0円 <small>にも</small> 100万円超 <small>にも</small></div></div>
+        <div class="roi"><div class="rt">毎月出ていくお金を1.5万円見直すと<br>（30年）</div><div class="rv">540<small>万円</small></div></div>
+      </div>
+      <p class="punch" style="font-size:17px;">どれか1つ当てはまれば、<br><span class="hl">費用は、何十倍にもなって返ってきます。</span></p>
+      <p class="lead" style="text-align:center;margin-top:18px;">逆に、44ページを見ても改善点が1つも見つからなければ、<br>あなたの家計は、すでに完成しています。<br>そのときは、そう正直にお伝えします。</p>
+      <p class="note">※ 試算例です。前提条件により結果は変わり、成果を保証するものではありません。住宅ローンは元利均等・金利1.0%↔0.5%、新NISAは年4%・税率20.315%で試算。将来の運用成果を約束するものではありません。</p>
+    </div>
+  </section>
+
+  <!-- ③ 相場 -->
+  <section class="sec market">
+    <div class="wrap">
+      <div class="kicker">参考までに</div>
+      <h2>お金の相談の、<br><em>世の中の相場です。</em></h2>
+      <div class="mrow"><span class="ml">お金の相談（最も多い価格帯）</span><span class="mr">1時間 5,000〜10,000円</span></div>
+      <div class="mrow"><span class="ml">金融商品を売らない独立系の事務所</span><span class="mr">2時間 22,000円</span></div>
+      <div class="mrow"><span class="ml">ライフプラン作成のパッケージ</span><span class="mr">33,000〜110,000円</span></div>
+      <div class="mrow"><span class="ml">個人の年間顧問契約</span><span class="mr">60,000〜110,000円／年</span></div>
+      <div class="mrow"><span class="ml">富裕層向けファミリーオフィス</span><span class="mr">年間 数千万円</span></div>
+      <p class="note" style="color:rgba(255,255,255,.6);">※ 日本FP協会の調査および各事務所の公開料金より。</p>
+    </div>
+  </section>
+
+  <!-- ④ プラン -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="kicker">料金プラン</div>
+      <h2>3つのプランを<br><em>ご用意しています。</em></h2>
+
+      <div class="plans">
+        <div class="plan">
+          <div class="pn">パーソナルCFO顧問</div>
+          <div class="pfor">経営者・資産家の方へ</div>
+          <div class="pp">330,000<small>円／年</small></div>
+          <ul>
+            <li><span class="ck">✓</span>44ページ＋事業計画連動</li>
+            <li><span class="ck">✓</span>資産推移100年・キャッシュフロー60年＋法人</li>
+            <li><span class="ck">✓</span>保障の過不足分析</li>
+            <li><span class="ck">✓</span><b>3か月ごとの作戦会議＋チャット無制限</b></li>
+            <li><span class="ck">✓</span>森川 満章が直接対応</li>
+          </ul>
+          <p class="limit">※ 年間5名限定</p>
+        </div>
+
+        <div class="plan best">
+          <span class="tag">いちばん選ばれています</span>
+          <div class="pn">パーソナルCFO</div>
+          <div class="pfor">ご家庭・個人の方へ</div>
+          <div class="pp">99,000<small>円</small></div>
+          <ul>
+            <li><span class="ck">✓</span><b>全44ページの設計図</b></li>
+            <li><span class="ck">✓</span>資産推移100年・キャッシュフロー60年</li>
+            <li><span class="ck">✓</span>保障の過不足分析</li>
+            <li><span class="ck">✓</span>改善プランのご提案</li>
+            <li><span class="ck">✓</span><b>半年〜1年ごとの作戦会議</b></li>
+            <li><span class="ck">✓</span>森川 満章が直接対応</li>
+          </ul>
+        </div>
+
+        <div class="plan">
+          <div class="pn">ライフプラン診断</div>
+          <div class="pfor">まず現在地だけ知りたい方へ</div>
+          <div class="pp">39,800<small>円</small></div>
+          <ul>
+            <li><span class="ck">✓</span>8ページ（簡易版）</li>
+            <li><span class="ck">✓</span>資産推移30年</li>
+            <li class="off"><span class="ck">−</span>キャッシュフロー表</li>
+            <li class="off"><span class="ck">−</span>保障の過不足分析</li>
+            <li class="off"><span class="ck">−</span>その後の作戦会議（都度 11,000円）</li>
+            <li><span class="ck">✓</span>森川 満章が直接対応</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="why-mid">
+        <p>39,800円のプランは、設計図をお渡しして終わりになります。<br><br>でも現実には、設計図は<strong>「つくった後」に効きます。</strong><br><br>半年後に転職があった。<br>子どもの進路が変わった。<br>金利が動いた。<br><br>そのたびに引き直せることに、<strong>いちばん価値があります。</strong></p>
+      </div>
+
+      <!-- ⑤ 分解価格 -->
+      <div class="split">
+        <div class="big">99,000円は、<br>100年分の設計図です。</div>
+        <div class="sub">1年あたりに直すと、<strong>990円。</strong><br>お支払いは、月々16,500円×6回の分割も可能です。<br><br>毎月出ていくお金を1つ見直せば、<br>それだけで払えてしまう金額であることが、ほとんどです。</div>
+      </div>
+
+      <div class="split" style="border-color:var(--line);">
+        <div class="big" style="color:var(--ink);font-size:17px;">ご夫婦・パートナー<br>おふたりでの参加をおすすめしています。</div>
+        <div class="sub">家計は、片方だけでは動かないからです。<br>99,000円は、世帯でのお値段。<br>おふたりなら、<strong>おひとりあたり49,500円</strong>になります。</div>
+      </div>
+
+      <!-- ⑥ サロン（金額は出さない） -->
+      <div class="salon">
+        <div class="st">🌿 ユメカネサロンの方へ</div>
+        <p>このサービスは、「ユメカネサロン」の会員特典にも含まれています。<br><br>サロンでは、設計図の作成と、その後の毎年の引き直しが、会費の中に含まれます。<br><br>長く伴走してほしい方は、サロンからのご参加もご検討ください。</p>
+        <a href="https://note.com/yumekane/n/nd70dec2ae71b?sub_rt=share_pw" target="_blank" rel="noopener">▶ ユメカネサロンについて見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ 締め -->
+  <section class="sec closing">
+    <div class="wrap">
+      <h2>決めるのを1年先延ばしにすると、<br>どうなるか。</h2>
+      <p>月3万円・年4%で20年積み立てると、約1,100万円。<br>同じことを1年遅らせて19年にすると、約1,020万円。<br><br><span class="hl">差は、およそ80万円です。</span><br><br>複利は、金額ではなく年数で効きます。<br><br>急がせるつもりはありません。<br>ただ、この数字は知ったうえで<br>決めてほしいと思っています。</p>
+
+      <a href="https://fulfull.stores.jp/reserve/fulfull/4002710" class="cta" target="_blank" rel="noopener">
+        個別相談を申し込む
+        <span class="cs">▶ 森川 満章が直接お話しします</span>
+      </a>
+      <p class="cta-note" style="color:rgba(255,255,255,.65);">※ 表示価格はすべて税込です。</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p>※ 記載の試算はすべて例示であり、成果を保証するものではありません。<br>※ 相場情報は日本FP協会の調査および各事務所の公開料金に基づきます。<br>© fulfull株式会社</p>
+    </div>
+  </footer>
+</body>
+</html>
