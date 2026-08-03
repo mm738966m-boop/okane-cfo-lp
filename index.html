@@ -118,6 +118,15 @@
   .cta-note{text-align:center;font-size:12.5px;color:#9ca3af;}
 
   /* 成果物ギャラリー */
+  .doc-big{margin:26px 0;}
+  .doc-big figure{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;
+    box-shadow:0 14px 34px rgba(15,23,42,.13);aspect-ratio:16/11;}
+  .doc-big figure img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+  .doc-big .dcap{display:flex;gap:13px;align-items:flex-start;margin-top:14px;}
+  .doc-big .dcap .no{flex:0 0 auto;background:var(--teal);color:#fff;font-size:12.5px;font-weight:800;
+    padding:5px 11px;border-radius:8px;letter-spacing:.05em;margin-top:2px;}
+  .doc-big .dt{font-size:17px;font-weight:900;color:var(--ink);margin-bottom:4px;}
+  .doc-big .ds{font-size:14px;color:var(--ink-sub);line-height:1.8;}
   .docs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0;}
   .docs figure{border:1px solid var(--line);border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:#fff;box-shadow:0 6px 16px rgba(15,23,42,.07);}
   .docs img{width:100%;height:100%;object-fit:cover;object-position:top center;}
@@ -187,17 +196,103 @@
   <section class="sec">
     <div class="wrap">
       <div class="kicker">お渡しするもの</div>
-      <h2>あなたの人生が、<br><em>1冊の設計図になります。</em></h2>
-      <div class="docs">
-        <figure><img src="images/doc-suii-12.png" alt="資産推移"></figure>
-        <figure><img src="images/doc-cfgraph-15.png" alt="収支の内訳"></figure>
-        <figure><img src="images/doc-cf-13.png" alt="キャッシュフロー表"></figure>
-        <figure><img src="images/doc-hosho-20.png" alt="保障の過不足"></figure>
+      <h2>あなたのお金が、<br><em>1冊の設計図になります。</em></h2>
+      <p class="lead">実際にお渡しする分析書の、ほんの一部です。</p>
+
+      <div class="doc-big">
+        <figure><img src="images/doc-suii-12.png" alt="資産推移シミュレーション"></figure>
+        <div class="dcap"><span class="no">01</span><div><div class="dt">100年分の資産推移</div><div class="ds">いつ、いくら貯まって、いつ減り始めるか。<br>お金の"地形"が、1枚で見えます。</div></div></div>
       </div>
+
+      <div class="doc-big">
+        <figure><img src="images/doc-cf-13.png" alt="キャッシュフロー表"></figure>
+        <div class="dcap"><span class="no">02</span><div><div class="dt">1年ごとの収支、60年分</div><div class="ds">収入・支出・資産残高を、1歳きざみで。<br>「何年後に、いくら足りないか」まで分かります。</div></div></div>
+      </div>
+
+      <div class="doc-big">
+        <figure><img src="images/doc-cfgraph-15.png" alt="収支の内訳グラフ"></figure>
+        <div class="dcap"><span class="no">03</span><div><div class="dt">何にいくら使うか、一生分</div><div class="ds">生活費・教育費・住宅・イベント。<br>支出の中身が、年ごとに積み上がって見えます。</div></div></div>
+      </div>
+
+      <div class="doc-big">
+        <figure><img src="images/doc-hosho-20.png" alt="必要保障額の分析"></figure>
+        <div class="dcap"><span class="no">04</span><div><div class="dt">万一のとき、いくら足りないか</div><div class="ds">残された家族に必要な額と、いまの備えの差。<br>過不足を、はっきり数字で突き止めます。</div></div></div>
+      </div>
+
+      <div class="doc-big">
+        <figure><img src="images/doc-dash-10.png" alt="資産と負債のダッシュボード"></figure>
+        <div class="dcap"><span class="no">05</span><div><div class="dt">資産と負債の全体像</div><div class="ds">いま持っているもの、抱えているもの。<br>今日と老後、両方の姿を並べて見ます。</div></div></div>
+      </div>
+
+      <div class="docs" style="margin-top:22px;">
+        <figure><img src="images/doc-kyoiku-04.png" alt="教育費の積み上げ"></figure>
+        <figure><img src="images/doc-event-09.png" alt="ライフイベントの計画"></figure>
+      </div>
+      <p style="text-align:center;font-size:13px;color:#9ca3af;margin-top:10px;line-height:1.8;">教育費は学年ごとに、ライフイベントは1つずつ。<br>ここまで細かく積み上げます。</p>
+
       <div class="vol">
         <span class="big">これで、<em>全44</em>ページ。</span>
-        <span class="sub">100年分の資産推移と、60年分のキャッシュフロー。</span>
+        <span class="sub">100年分の資産推移と、60年分のキャッシュフロー。<br>あなただけの、お金の設計図です。</span>
       </div>
+    </div>
+  </section>
+
+  <!-- 森川満章 -->
+  <section class="sec" style="background:#0b504a;color:#fff;">
+    <div class="wrap">
+      <div class="kicker" style="color:var(--teal-l);">担当するのは、この人です</div>
+      <div style="width:100%;max-width:300px;margin:0 auto 22px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-img);aspect-ratio:1/1;">
+        <img src="images/morikawa.jpg" alt="森川 満章" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div style="text-align:center;font-size:19px;font-weight:900;color:#7dd3c1;margin-bottom:4px;">森川 満章</div>
+      <div style="text-align:center;font-size:13px;color:rgba(255,255,255,.72);margin-bottom:24px;">fulfull株式会社 代表</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:26px;">
+        <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:18px 12px;text-align:center;">
+          <div style="font-size:30px;font-weight:900;color:#7dd3c1;line-height:1.1;">2,000<span style="font-size:15px;">件超</span></div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.82);margin-top:5px;">これまでの相談実績</div>
+        </div>
+        <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:18px 12px;text-align:center;">
+          <div style="font-size:30px;font-weight:900;color:#7dd3c1;line-height:1.1;">380<span style="font-size:15px;">件／年</span></div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.82);margin-top:5px;">現在の年間相談数</div>
+        </div>
+        <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:18px 12px;text-align:center;">
+          <div style="font-size:30px;font-weight:900;color:#7dd3c1;line-height:1.1;">200<span style="font-size:15px;">回超</span></div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.82);margin-top:5px;">セミナー登壇</div>
+        </div>
+        <div style="background:rgba(255,255,255,.08);border-radius:14px;padding:18px 12px;text-align:center;">
+          <div style="font-size:30px;font-weight:900;color:#7dd3c1;line-height:1.1;">毎日</div>
+          <div style="font-size:12.5px;color:rgba(255,255,255,.82);margin-top:5px;">Voicyでお金の発信</div>
+        </div>
+      </div>
+
+      <p style="font-size:15.5px;color:rgba(255,255,255,.92);line-height:2;text-align:center;">
+        お金の不安は、金額の問題じゃありません。<br>
+        <span style="color:#7dd3c1;font-weight:800;">"見えていない"という問題</span>です。<br><br>
+        見えさえすれば、たいていのことは何とかなる。<br>
+        そして、<span style="color:#7dd3c1;font-weight:800;">何とかできる。</span><br><br>
+        その"見える化"を、<br>あなたと一緒にやらせてください。
+      </p>
+    </div>
+  </section>
+
+  <!-- 学びの現場 -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="kicker">これまでの現場</div>
+      <h2>お金と本気で向き合う人が、<br><em>すでに集まっています。</em></h2>
+      <div class="docs" style="grid-template-columns:1fr;gap:12px;">
+        <figure style="aspect-ratio:16/9;border-radius:16px;"><img src="images/group.jpg" alt="勉強会の集合写真"></figure>
+      </div>
+      <div class="docs">
+        <figure style="border-radius:14px;"><img src="images/talk.jpg" alt="少人数での相談"></figure>
+        <figure style="border-radius:14px;"><img src="images/venue-story.jpg" alt="セミナーの様子"></figure>
+      </div>
+      <p style="text-align:center;font-size:15px;color:var(--ink-sub);line-height:1.95;margin-top:18px;">
+        経営者の方も、ご家庭の方も。<br>
+        立場は違っても、悩みの根っこは同じです。<br>
+        <strong style="color:var(--teal-d);">「このままで、いいんだろうか」</strong>
+      </p>
     </div>
   </section>
 
