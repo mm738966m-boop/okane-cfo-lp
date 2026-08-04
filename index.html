@@ -118,6 +118,79 @@
   .cta-note{text-align:center;font-size:12.5px;color:#9ca3af;}
 
   /* 成果物ギャラリー */
+  /* 冊子モックアップ */
+  .bookwrap{position:relative;display:flex;justify-content:center;padding:34px 0 46px;perspective:1400px;}
+  .book{position:relative;width:222px;aspect-ratio:210/297;transform:rotateY(-15deg) rotateX(5deg) rotate(-2deg);transform-style:preserve-3d;}
+  .book .stack{position:absolute;inset:0;border-radius:3px 9px 9px 3px;background:#fff;
+    box-shadow:2px 1px 0 #f1f5f9,4px 1px 0 #e6ecf2,6px 2px 0 #f4f7fa,8px 2px 0 #e2e8f0,10px 3px 0 #f1f5f9,12px 3px 0 #dfe6ee,14px 4px 0 #f4f7fa,16px 4px 0 #e2e8f0;}
+  .book .cover{position:absolute;inset:0;border-radius:3px 9px 9px 3px;
+    background:linear-gradient(148deg,#12867c 0%,#0d9488 46%,#0a5f57 100%);
+    color:#fff;padding:28px 20px 22px;display:flex;flex-direction:column;
+    box-shadow:0 30px 56px -14px rgba(15,23,42,.48),inset 0 0 0 1px rgba(255,255,255,.16);}
+  .book .cover::before{content:"";position:absolute;left:0;top:0;bottom:0;width:11px;background:linear-gradient(90deg,rgba(0,0,0,.26),rgba(0,0,0,0));border-radius:3px 0 0 3px;}
+  .book .cover::after{content:"";position:absolute;left:13px;top:0;bottom:0;width:1px;background:rgba(255,255,255,.24);}
+  .cv-brand{font-size:9px;font-weight:800;letter-spacing:.22em;opacity:.82;}
+  .cv-title{font-size:25px;font-weight:900;line-height:1.42;margin-top:auto;}
+  .cv-name{margin-top:14px;font-size:12.5px;font-weight:700;display:flex;align-items:flex-end;gap:6px;}
+  .cv-name i{flex:1;max-width:100px;border-bottom:1.5px dotted rgba(255,255,255,.72);height:16px;}
+  .cv-meta{margin-top:12px;padding-top:11px;font-size:10px;opacity:.8;letter-spacing:.05em;border-top:1px solid rgba(255,255,255,.28);}
+  .bookwrap::after{content:"";position:absolute;bottom:30px;left:50%;width:246px;height:22px;transform:translateX(-46%);
+    background:radial-gradient(ellipse,rgba(15,23,42,.30),transparent 70%);filter:blur(7px);z-index:-1;}
+
+  /* インフォグラフィックカード */
+  .ic{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 17px;box-shadow:0 12px 30px rgba(15,23,42,.08);margin-bottom:20px;}
+  .ic-q{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.7;margin-bottom:5px;}
+  .ic-h{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:800;color:var(--teal-d);margin-bottom:15px;}
+  .ic-n{background:var(--teal);color:#fff;font-size:11px;font-weight:800;padding:4px 8px;border-radius:6px;letter-spacing:.05em;}
+  .ic-svg{width:100%;height:auto;display:block;}
+  .ic-key{display:grid;grid-template-columns:1fr 1fr;gap:9px;list-style:none;margin-top:14px;}
+  .ic-key li{background:var(--teal-bg);border-radius:12px;padding:11px 8px;text-align:center;}
+  .ic-key li b{display:block;font-size:11px;color:var(--ink-sub);font-weight:700;}
+  .ic-key li span{font-size:23px;font-weight:900;color:var(--teal-d);line-height:1.25;}
+  .ic-key li span i{font-style:normal;font-size:12.5px;margin-left:1px;}
+  .ic-key li.warn{background:var(--rose-bg);} .ic-key li.warn span{color:var(--rose);}
+  .ic-so{font-size:13.5px;color:var(--ink-sub);line-height:1.8;margin-top:14px;padding-top:13px;border-top:1px solid var(--line);}
+  .ic-so b{color:var(--teal-d);}
+
+  /* ミニ表 */
+  .mini{border:1px solid var(--line);border-radius:12px;overflow:hidden;font-variant-numeric:tabular-nums;}
+  .mini-r{display:grid;grid-template-columns:1.45fr 1fr 1fr 1.05fr;font-size:12.5px;border-bottom:1px solid var(--line);}
+  .mini-r:last-child{border-bottom:none;}
+  .mini-r span{padding:10px 6px;text-align:right;}
+  .mini-r span:first-child{text-align:left;font-weight:700;}
+  .mini-h{background:var(--teal-d);color:#fff;font-size:11px;font-weight:800;}
+  .mini-h span{padding:8px 6px;}
+  .mini-r.danger{background:var(--rose-bg);color:var(--rose);font-weight:900;}
+  .mini-more{background:#f8fafc;color:var(--ink-sub);font-size:11.5px;text-align:center;padding:11px;}
+  .mini-more b{color:var(--teal-d);}
+
+  /* 不足額バー */
+  .gap-bar{display:flex;height:58px;border-radius:12px;overflow:hidden;font-size:11.5px;font-weight:800;color:#fff;}
+  .gap-have{background:var(--teal);display:grid;place-items:center;flex:0 0 auto;padding:0 4px;text-align:center;line-height:1.4;}
+  .gap-need{background:repeating-linear-gradient(45deg,#e11d48,#e11d48 9px,#c81e46 9px,#c81e46 18px);flex:1;display:grid;place-items:center;font-size:12.5px;}
+  .gap-need b{font-size:23px;font-weight:900;margin-right:2px;}
+
+  /* 経営者専用 */
+  .ceo{background:#0b504a;border-radius:20px;padding:26px 20px;margin-top:26px;color:#fff;}
+  .ceo-h{font-size:18px;font-weight:900;line-height:1.6;margin-bottom:18px;}
+  .ceo-h em{font-style:normal;color:#7dd3c1;}
+  .ceo ul{list-style:none;display:flex;flex-direction:column;gap:15px;}
+  .ceo li b{display:block;font-size:15px;font-weight:800;color:#7dd3c1;margin-bottom:4px;}
+  .ceo li span{font-size:13.5px;color:rgba(255,255,255,.86);line-height:1.8;}
+
+  /* 44ページメーター */
+  .volm{background:#fff;border:1.5px solid var(--teal);border-radius:18px;padding:24px 18px 22px;box-shadow:var(--shadow);margin-top:26px;}
+  .spine{display:grid;grid-template-columns:repeat(44,1fr);gap:2px;align-items:end;height:72px;}
+  .spine i{display:block;border-radius:2px 2px 0 0;background:linear-gradient(180deg,#5eead4,#0d9488);height:var(--h,60%);}
+  .chap{display:grid;grid-template-columns:repeat(44,1fr);margin-top:9px;gap:2px;}
+  .chap span{grid-column:span var(--n);border-top:2px solid var(--teal);padding-top:6px;font-size:9px;font-weight:800;color:var(--teal-d);letter-spacing:-.03em;text-align:center;}
+  .volt{margin-top:18px;text-align:center;font-size:14.5px;font-weight:700;color:var(--ink-sub);line-height:1.85;}
+  .volt b{font-size:21px;font-weight:900;color:var(--teal-d);}
+
+  .why44{background:var(--teal-bg);border-left:4px solid var(--teal);border-radius:0 14px 14px 0;padding:22px 18px;margin-top:26px;}
+  .why44 p{font-size:14.5px;line-height:1.95;color:var(--ink);}
+  .why44 strong{color:var(--teal-d);}
+
   .doc-big{margin:26px 0;}
   .doc-big figure{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;
     box-shadow:0 14px 34px rgba(15,23,42,.13);aspect-ratio:16/11;}
@@ -197,43 +270,128 @@
   <section class="sec">
     <div class="wrap">
       <div class="kicker">お渡しするもの</div>
-      <h2>あなたのお金が、<br><em>1冊の設計図になります。</em></h2>
-      <p class="lead">実際にお渡しする分析書の、ほんの一部です。</p>
+      <h2>会社には、決算書がありますよね。<br><em>あなた個人には、これを。</em></h2>
 
-      <div class="doc-big">
-        <figure><img src="images/doc-suii-12.png" alt="資産推移シミュレーション"></figure>
-        <div class="dcap"><span class="no">01</span><div><div class="dt">100年分の資産推移</div><div class="ds">いつ、いくら貯まって、いつ減り始めるか。<br>お金の"地形"が、1枚で見えます。</div></div></div>
+      <!-- 冊子モックアップ -->
+      <div class="bookwrap">
+        <div class="book">
+          <span class="stack"></span>
+          <div class="cover">
+            <span class="cv-brand">PERSONAL CFO</span>
+            <h3 class="cv-title">ライフプラン<br>設計書</h3>
+            <span class="cv-name"><i></i> 様</span>
+            <span class="cv-meta">全 44 ページ ／ fulfull株式会社</span>
+          </div>
+        </div>
       </div>
 
-      <div class="doc-big">
-        <figure><img src="images/doc-cf-13.png" alt="キャッシュフロー表"></figure>
-        <div class="dcap"><span class="no">02</span><div><div class="dt">1年ごとの収支、60年分</div><div class="ds">収入・支出・資産残高を、1歳きざみで。<br>「何年後に、いくら足りないか」まで分かります。</div></div></div>
+      <p class="lead" style="text-align:center;">あなたのお金の"わからない"に、<br>ぜんぶ、数字でお答えします。<br><span style="font-size:13.5px;color:#9ca3af;">——ここでは、そのうち4つをお見せします。</span></p>
+
+      <!-- 01 何歳まで働けばいいのか -->
+      <div class="ic" style="margin-top:26px;">
+        <div class="ic-q">「僕は、何歳まで働けばいいんだろう。」</div>
+        <div class="ic-h"><span class="ic-n">01</span>100年分の資産推移</div>
+        <svg viewBox="0 0 340 178" class="ic-svg" role="img" aria-label="資産推移">
+          <defs><linearGradient id="gT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d9488" stop-opacity=".32"/><stop offset="1" stop-color="#0d9488" stop-opacity="0"/></linearGradient></defs>
+          <rect x="14" y="118" width="318" height="42" fill="#e11d48" fill-opacity=".06"/>
+          <line x1="14" y1="118" x2="332" y2="118" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 4"/>
+          <path fill="url(#gT)" d="M14,103 L52,99 L82,107 L112,62 L150,38 L176,48 L208,66 L250,92 L288,118 L14,118 Z"/>
+          <path fill="none" stroke="#0d9488" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" d="M14,103 L52,99 L82,107 L112,62 L150,38 L176,48 L208,66 L250,92 L288,118 L332,154"/>
+          <circle cx="150" cy="38" r="4.5" fill="#0d9488"/>
+          <circle cx="288" cy="118" r="5.5" fill="#fff" stroke="#e11d48" stroke-width="3"/>
+          <text x="14" y="174" font-size="10" fill="#64748b" font-weight="700">40歳</text>
+          <text x="150" y="174" font-size="10" fill="#64748b" font-weight="700" text-anchor="middle">65歳</text>
+          <text x="332" y="174" font-size="10" fill="#64748b" font-weight="700" text-anchor="end">100歳</text>
+        </svg>
+        <ul class="ic-key">
+          <li><b>65歳で</b><span>2,160<i>万円</i></span></li>
+          <li class="warn"><b>91歳で</b><span>0<i>円</i></span></li>
+        </ul>
+        <p class="ic-so">いつ、いくら貯まって、いつ減りはじめるか。<br><b>だから、辞めどきが、願望ではなく数字で決まります。</b></p>
       </div>
 
-      <div class="doc-big">
-        <figure><img src="images/doc-cfgraph-15.png" alt="収支の内訳グラフ"></figure>
-        <div class="dcap"><span class="no">03</span><div><div class="dt">何にいくら使うか、一生分</div><div class="ds">生活費・教育費・住宅・イベント。<br>支出の中身が、年ごとに積み上がって見えます。</div></div></div>
+      <!-- 02 いちばん苦しい年 -->
+      <div class="ic">
+        <div class="ic-q">「いちばん苦しくなるのは、何年後ですか。」</div>
+        <div class="ic-h"><span class="ic-n">02</span>1年ごとの収支、60年分</div>
+        <div class="mini">
+          <div class="mini-r mini-h"><span>年（年齢）</span><span>収入</span><span>支出</span><span>残高</span></div>
+          <div class="mini-r"><span>2026 (40歳)</span><span>752</span><span>851</span><span>703</span></div>
+          <div class="mini-r"><span>2033 (47歳)</span><span>773</span><span>994</span><span>570</span></div>
+          <div class="mini-r"><span>2046 (60歳)</span><span>1,821</span><span>1,462</span><span>2,665</span></div>
+          <div class="mini-r"><span>2051 (65歳)</span><span>633</span><span>640</span><span>2,160</span></div>
+          <div class="mini-r danger"><span>2077 (91歳)</span><span>317</span><span>388</span><span>0</span></div>
+          <div class="mini-more">…この間、<b>60年分すべて</b>を1歳きざみで算出（単位：万円）</div>
+        </div>
+        <p class="ic-so">足りなくなる年が、ピンポイントで分かります。<br><b>だから、"いま動く"か"3年後まで待つ"かを決められます。</b></p>
       </div>
 
-      <div class="doc-big">
-        <figure><img src="images/doc-hosho-20.png" alt="必要保障額の分析"></figure>
-        <div class="dcap"><span class="no">04</span><div><div class="dt">万一のとき、いくら足りないか</div><div class="ds">残された家族に必要な額と、いまの備えの差。<br>過不足を、はっきり数字で突き止めます。</div></div></div>
+      <!-- 03 何に払っているか -->
+      <div class="ic">
+        <div class="ic-q">「うちは、何にいちばん払ってるんだろう。」</div>
+        <div class="ic-h"><span class="ic-n">03</span>支出の中身、一生分</div>
+        <svg viewBox="0 0 340 150" class="ic-svg" role="img" aria-label="支出の内訳">
+          <g>
+            <rect x="20" y="30" width="300" height="20" rx="4" fill="#0d9488"/>
+            <text x="26" y="44" font-size="11" fill="#fff" font-weight="800">生活費　3,600万</text>
+            <rect x="20" y="58" width="130" height="20" rx="4" fill="#14b8a6"/>
+            <text x="26" y="72" font-size="11" fill="#fff" font-weight="800">教育費 1,562万</text>
+            <rect x="20" y="86" width="105" height="20" rx="4" fill="#5eead4"/>
+            <text x="26" y="100" font-size="11" fill="#0f766e" font-weight="800">住まい 1,200万</text>
+            <rect x="20" y="114" width="72" height="20" rx="4" fill="#a7f3e0"/>
+            <text x="26" y="128" font-size="11" fill="#0f766e" font-weight="800">車・旅行</text>
+          </g>
+        </svg>
+        <p class="ic-so">中身が、年ごとに積み上がって見えます。<br><b>だから、削る場所を、勘ではなく順番で決められます。</b></p>
       </div>
 
-      <div class="doc-big">
-        <figure><img src="images/doc-dash-10.png" alt="資産と負債のダッシュボード"></figure>
-        <div class="dcap"><span class="no">05</span><div><div class="dt">資産と負債の全体像</div><div class="ds">いま持っているもの、抱えているもの。<br>今日と老後、両方の姿を並べて見ます。</div></div></div>
+      <!-- 04 万一のとき -->
+      <div class="ic">
+        <div class="ic-q">「僕が倒れたら、家族はいくら足りないんですか。」</div>
+        <div class="ic-h"><span class="ic-n">04</span>万一のときの、過不足</div>
+        <div class="gap-bar">
+          <div class="gap-have" style="width:30%;">いまの備え<br>3,000万</div>
+          <div class="gap-need">不足 <b>6,986</b>万円</div>
+        </div>
+        <p class="ic-so">必要な額は9,986万円。そこから、いまの備えを引いた差額です。<br><b>だから、足すのか、減らすのかを、はじめて自分で決められます。</b></p>
       </div>
 
-      <div class="docs" style="margin-top:22px;">
-        <figure><img src="images/doc-kyoiku-04.png" alt="教育費の積み上げ"></figure>
-        <figure><img src="images/doc-event-09.png" alt="ライフイベントの計画"></figure>
-      </div>
-      <p style="text-align:center;font-size:13px;color:#9ca3af;margin-top:10px;line-height:1.8;">教育費は学年ごとに、ライフイベントは1つずつ。<br>ここまで細かく積み上げます。</p>
+      <p style="text-align:center;font-size:12px;color:#9ca3af;line-height:1.8;">※ 実際の分析書をもとに再構成したイメージです。<br>数値は架空のモデルケースです。</p>
 
-      <div class="vol">
-        <span class="big">これで、<em>全44</em>ページ。</span>
-        <span class="sub">100年分の資産推移と、60年分のキャッシュフロー。<br>あなただけの、お金の設計図です。</span>
+      <!-- 経営者専用 -->
+      <div class="ceo">
+        <div class="ceo-h">経営者の方には、<br><em>さらに3ページ。</em></div>
+        <ul>
+          <li><b>役員報酬の最適点</b><span>法人税・所得税・社会保険を合算し、<br>手残りが最大になる金額を算出します。</span></li>
+          <li><b>法人と個人の境界線</b><span>会社に置くお金、個人へ移すお金、守るお金。<br>3つに分けて描きます。</span></li>
+          <li><b>出口の3シナリオ</b><span>退職金・承継・売却。<br>それぞれで、あなたの資産曲線がどう変わるか。</span></li>
+        </ul>
+      </div>
+
+      <!-- なぜ44ページか -->
+      <div class="why44">
+        <p>なぜ、44ページになるのか。<br><br>
+        正直に言うと、最初から44ページにしようと思ったわけではありません。<br><br>
+        ご家族の年齢。<br>お子さんの進路。<br>住宅ローンの金利と残年数。<br>毎月出ていくお金の中身。<br>働き方が変わる年。<br><br>
+        聞き取って、入力していく項目は、<strong>300を超えます。</strong><br><br>
+        それを削って、削って、<br>どうしても外せないものだけ残したら、<br>44ページになりました。<br><br>
+        ——ただ、<strong>あなたが読むのは、たぶん3ページです。</strong><br><br>
+        残りは、私が間違えないための44ページ。<br>
+        「なんとなく大丈夫そう」で終わらせないために、<br>全部を数字にしておく。<br><br>
+        分厚いのは、あなたの負担を増やすためではなく、<br><strong>私が、あなたに嘘をつけなくするためです。</strong></p>
+      </div>
+
+      <!-- 44ページメーター -->
+      <div class="volm">
+        <div class="spine" id="spine" aria-hidden="true"></div>
+        <div class="chap">
+          <span style="--n:8">現状分析</span>
+          <span style="--n:10">資産推移</span>
+          <span style="--n:12">収支60年</span>
+          <span style="--n:6">備え</span>
+          <span style="--n:8">改善プラン</span>
+        </div>
+        <p class="volt">合わせて、<b>全44ページ</b>。<br>あなたの名前が入った、世界に1冊です。</p>
       </div>
     </div>
   </section>
@@ -513,6 +671,16 @@
       </p>
     </div>
   </section>
+
+  <script>
+    // 44ページ分の背表紙を生成
+    (function(){
+      const s=document.getElementById('spine');
+      if(!s) return;
+      const h=[62,70,55,78,66,84,58,72,90,64,76,60,88,68,54,80,74,62,86,58,70,92,66,56,78,64,82,60,74,68,88,54,76,70,62,84,58,80,66,72,90,56,68,78];
+      s.innerHTML = h.map(v=>`<i style="--h:${v}%"></i>`).join('');
+    })();
+  </script>
 
   <footer>
     <div class="wrap">
