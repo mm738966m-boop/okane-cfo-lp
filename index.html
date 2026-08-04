@@ -90,6 +90,32 @@
   .plan.best li{color:var(--ink);font-weight:600;}
   .plan .limit{font-size:11.5px;color:#9ca3af;margin-top:12px;}
 
+  /* プラン：時系列型 */
+  .pverb{font-size:30px;font-weight:900;color:var(--teal-d);line-height:1.2;margin-bottom:4px;}
+  .plan .pverb{color:var(--ink);} .plan.best .pverb{color:var(--teal-d);font-size:36px;}
+  .ptl{margin:16px 0 0;}
+  .ptl-r{display:flex;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line);}
+  .ptl-r:last-child{border-bottom:none;}
+  .ptl-w{flex:0 0 74px;font-size:12px;font-weight:800;color:var(--teal-d);padding-top:2px;}
+  .ptl-t{flex:1;font-size:13.5px;color:var(--ink-sub);line-height:1.75;}
+  .ptl-t b{color:var(--ink);}
+  .pget{background:var(--teal-bg);border-radius:12px;padding:15px 14px;margin-top:15px;}
+  .pget .pg-l{font-size:11.5px;font-weight:800;color:var(--teal-d);letter-spacing:.06em;margin-bottom:5px;}
+  .pget .pg-t{font-size:14px;font-weight:700;color:var(--ink);line-height:1.75;}
+  .pnote{font-size:12.5px;color:#9ca3af;line-height:1.8;margin-top:13px;padding-top:12px;border-top:1px solid var(--line);}
+  .p3sum{background:#fff;border:1.5px solid var(--teal);border-radius:18px;padding:24px 18px;margin-top:24px;box-shadow:var(--shadow);}
+  .p3sum .s-h{font-size:16px;font-weight:900;color:var(--ink);margin-bottom:16px;text-align:center;}
+  .p3sum .s-r{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  .p3sum .s-r:last-child{border-bottom:none;}
+  .p3sum .s-n{flex:0 0 auto;font-weight:800;color:var(--teal-d);font-size:13px;}
+  .p3sum .s-t{color:var(--ink-sub);line-height:1.7;}
+  .promise2{background:#0b504a;border-radius:20px;padding:26px 20px;margin-top:26px;color:#fff;}
+  .promise2 .pm-h{font-size:18px;font-weight:900;line-height:1.65;margin-bottom:18px;}
+  .promise2 .pm-h em{font-style:normal;color:#7dd3c1;}
+  .promise2 ul{list-style:none;display:flex;flex-direction:column;gap:16px;}
+  .promise2 li b{display:block;font-size:15px;font-weight:800;color:#7dd3c1;margin-bottom:4px;}
+  .promise2 li span{font-size:13.5px;color:rgba(255,255,255,.86);line-height:1.8;}
+
   .why-mid{background:var(--teal-bg);border-left:4px solid var(--teal);border-radius:0 14px 14px 0;padding:20px;margin-top:22px;}
   .why-mid p{font-size:15px;line-height:1.9;color:var(--ink);}
   .why-mid strong{color:var(--teal-d);}
@@ -721,55 +747,91 @@
   <section class="sec">
     <div class="wrap">
       <div class="kicker">料金プラン</div>
-      <h2>3つのプランを<br><em>ご用意しています。</em></h2>
+      <h2>値段の話をする前に、<br><em>1つだけ。</em></h2>
+      <p class="lead">ここから先に書いてあるのは、「何ページか」ではありません。<br><br><strong style="color:var(--teal-d);">申し込んだあと、あなたの1年に、何が起きるか</strong>です。<br><br>44ページという数字は、正直どうでもいいと思っています。<br>大事なのは、来年の今ごろ、あなたが何を決められているかです。</p>
 
-      <div class="plans">
+      <div class="plans" style="margin-top:26px;">
         <div class="plan">
-          <div class="pn">パーソナルCFO顧問</div>
-          <div class="pfor">経営者・資産家の方へ</div>
+          <div class="pverb">決め続ける。</div>
+          <div class="pfor">会社と家庭を、1枚の紙の上で</div>
+          <div class="pn" style="font-size:14px;color:var(--ink-sub);margin-top:8px;">パーソナルCFO顧問</div>
           <div class="pp">330,000<small>円／年</small></div>
-          <ul>
-            <li><span class="ck">✓</span>44ページ＋事業計画連動</li>
-            <li><span class="ck">✓</span>資産推移100年・キャッシュフロー60年＋法人</li>
-            <li><span class="ck">✓</span>保障の過不足分析</li>
-            <li><span class="ck">✓</span><b>3か月ごとの作戦会議＋チャット無制限</b></li>
-            <li><span class="ck">✓</span>森川 満章が直接対応</li>
-          </ul>
-          <p class="limit">※ 年間5名限定</p>
+          <div class="ptl">
+            <div class="ptl-r"><div class="ptl-w">1日目</div><div class="ptl-t">個人の項目に加えて、<b>決算書3期分</b>をお預かりします。</div></div>
+            <div class="ptl-r"><div class="ptl-w">2週目</div><div class="ptl-t">90分×3回。<b>会社の話と、家庭の話を、同じ日に</b>します。</div></div>
+            <div class="ptl-r"><div class="ptl-w">1か月目</div><div class="ptl-t">44ページ＋<b>経営者向け3ページ</b>をお渡しします。<br>役員報酬の最適点。会社と個人の境界線。出口の3シナリオ。</div></div>
+            <div class="ptl-r"><div class="ptl-w">3か月ごと</div><div class="ptl-t">作戦会議。決算前、値上げ前、採用前。<b>動く前に、数字で確認します。</b></div></div>
+            <div class="ptl-r"><div class="ptl-w">その間</div><div class="ptl-t"><b>チャットは無制限。</b>「これ、今決めていいですか」を、その日のうちに。</div></div>
+          </div>
+          <div class="pget"><div class="pg-l">手に入るもの</div><div class="pg-t">判断の前に、必ず一度、数字を通す習慣。<br>——あなたの、もう1つの脳です。</div></div>
+          <p class="pnote"><strong>なぜ年5名までなのか。</strong><br>「今決めていいですか」に、その日のうちに答えるためです。<br>20人いたら、必ず誰かを待たせます。<br>待たせた人の決算は、待ってくれません。</p>
         </div>
 
         <div class="plan best">
           <span class="tag">いちばん選ばれています</span>
-          <div class="pn">パーソナルCFO</div>
-          <div class="pfor">ご家庭・個人の方へ</div>
+          <div class="pverb">決める。</div>
+          <div class="pfor">設計図をつくって、半年後、一緒に引き直す</div>
+          <div class="pn" style="font-size:14px;color:var(--ink-sub);margin-top:8px;">パーソナルCFO</div>
           <div class="pp">99,000<small>円</small></div>
-          <ul>
-            <li><span class="ck">✓</span><b>全44ページの設計図</b></li>
-            <li><span class="ck">✓</span>資産推移100年・キャッシュフロー60年</li>
-            <li><span class="ck">✓</span>保障の過不足分析</li>
-            <li><span class="ck">✓</span>改善プランのご提案</li>
-            <li><span class="ck">✓</span><b>半年〜1年ごとの作戦会議</b></li>
-            <li><span class="ck">✓</span>森川 満章が直接対応</li>
-          </ul>
+          <div class="ptl">
+            <div class="ptl-r"><div class="ptl-w">1日目</div><div class="ptl-t">ヒアリングシートが届きます。<br><b>書けないところは、空欄で大丈夫です。</b>一緒に埋めます。</div></div>
+            <div class="ptl-r"><div class="ptl-w">1週目</div><div class="ptl-t">90分×2回。通帳も、明細も、全部見せていただきます。<br>ここが、いちばん気が重い時間だと思います。<br><b>でも、ここを飛ばすと、44ページ全部がウソになります。</b></div></div>
+            <div class="ptl-r"><div class="ptl-w">3週目</div><div class="ptl-t"><b>44ページの設計図</b>をお渡しします。<br>90分かけて、一緒に読みます。読むのは3ページで十分です。</div></div>
+            <div class="ptl-r"><div class="ptl-w">その日</div><div class="ptl-t">やることを、<b>3つだけ</b>に絞ります。<br>10個渡しても、誰もやりません。私も、やれませんでした。</div></div>
+            <div class="ptl-r"><div class="ptl-w">6か月後</div><div class="ptl-t">作戦会議。答え合わせと、設計図の引き直し。<br><b>できていなくても、責めません。</b>できない理由のほうを見ます。</div></div>
+            <div class="ptl-r"><div class="ptl-w">1年後</div><div class="ptl-t">もう一度、引き直します。</div></div>
+          </div>
+          <div class="pget"><div class="pg-l">手に入るもの</div><div class="pg-t">「今年、何を決めればいいのか」の答えと、<br>半年後にもう一度、答え合わせをしてくれる人。</div></div>
         </div>
 
         <div class="plan">
-          <div class="pn">ライフプラン診断</div>
-          <div class="pfor">まず現在地だけ知りたい方へ</div>
+          <div class="pverb">知る。</div>
+          <div class="pfor">まず、現在地だけ</div>
+          <div class="pn" style="font-size:14px;color:var(--ink-sub);margin-top:8px;">ライフプラン診断</div>
           <div class="pp">39,800<small>円</small></div>
-          <ul>
-            <li><span class="ck">✓</span>8ページ（簡易版）</li>
-            <li><span class="ck">✓</span>資産推移30年</li>
-            <li class="off"><span class="ck">−</span>キャッシュフロー表</li>
-            <li class="off"><span class="ck">−</span>保障の過不足分析</li>
-            <li class="off"><span class="ck">−</span>その後の作戦会議（都度 11,000円）</li>
-            <li><span class="ck">✓</span>森川 満章が直接対応</li>
-          </ul>
+          <div class="ptl">
+            <div class="ptl-r"><div class="ptl-w">1日目</div><div class="ptl-t">ヒアリングシートが届きます（記入は30分ほど）。</div></div>
+            <div class="ptl-r"><div class="ptl-w">4日目</div><div class="ptl-t">60分、オンラインでお話をうかがいます。</div></div>
+            <div class="ptl-r"><div class="ptl-w">10日目</div><div class="ptl-t"><b>8ページの診断書</b>をお渡しし、60分かけて一緒に読みます。<br>資産推移30年分。何歳で、いくら足りなくなるか。</div></div>
+            <div class="ptl-r"><div class="ptl-w">11日目〜</div><div class="ptl-t">ここで、いったんお別れです。</div></div>
+          </div>
+          <div class="pget"><div class="pg-l">手に入るもの</div><div class="pg-t">「このままだと、何年後に、いくら足りないのか」の答え。</div></div>
+          <p class="pnote"><strong>正直に書いておきます。</strong><br>このプランは、渡して終わりです。追いかけません。<br>半年後に転職しても、お子さんの進路が変わっても、この8ページは古いままです。<br>それでいい、という方のためのプランです。</p>
         </div>
       </div>
 
+      <!-- 3つの違い -->
+      <div class="p3sum">
+        <div class="s-h">3つの違いは、これだけです。</div>
+        <div class="s-r"><span class="s-n">知る</span><span class="s-t">地図を、お渡しします。</span></div>
+        <div class="s-r"><span class="s-n">決める</span><span class="s-t">地図を作って、半年後、一緒に見ます。</span></div>
+        <div class="s-r"><span class="s-n">決め続ける</span><span class="s-t">会社の分も描いて、3か月ごとに引き直します。</span></div>
+        <p style="font-size:14.5px;color:var(--ink);font-weight:700;line-height:1.9;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);text-align:center;">
+        値段の差は、ページ数の差ではありません。<br><strong style="color:var(--teal-d);">私が、どこまで一緒に行くかの差です。</strong></p>
+      </div>
+
+      <!-- 約束できること・できないこと -->
+      <div class="promise2">
+        <div class="pm-h">お約束できることと、<br><em>できないこと。</em></div>
+        <ul>
+          <li><b>売りません。</b><span>商品を持っていないので、そもそも売れません。<br>この相談料以外に、私に入るお金はありません。</span></li>
+          <li><b>「今のままで大丈夫です」と言います。</b><span>直すところが無ければ、そう言います。<br>無理やり何かを見つけて、仕事を作ることはしません。</span></li>
+          <li><b>耳の痛いことを、言います。</b><span>それを言わないなら、無料の相談と同じです。<br>気持ちよく帰っていただくことが、私の仕事ではありません。</span></li>
+          <li><b>担当は、変わりません。</b><span>異動も、転職もありません。<br>私が、最後まで担当します。</span></li>
+          <li><b>作って、終わりにしません。</b><span>設計図は、作った日から古くなります。<br>だから、引き直すところまでが仕事だと思っています。</span></li>
+          <li><b>分からないことは、分からないと言います。</b><span>税務の最終判断は税理士、法務は弁護士。<br>必要なときは、私が連れてきます。</span></li>
+          <li><b>全員は、お受けしません。</b><span>年間380件が、今の限界です。<br>お力になれないと思ったときは、正直にお断りします。<br>それが、お受けした方への誠実さだと思っています。</span></li>
+        </ul>
+      </div>
+
+      <!-- 迷ったときの決め方 -->
       <div class="why-mid">
-        <p>39,800円のプランは、設計図をお渡しして終わりになります。<br><br>でも現実には、設計図は<strong>「つくった後」に効きます。</strong><br><br>半年後に転職があった。<br>子どもの進路が変わった。<br>金利が動いた。<br><br>そのたびに引き直せることに、<strong>いちばん価値があります。</strong></p>
+        <p style="font-size:16px;font-weight:800;color:var(--ink);margin-bottom:14px;">迷ったときの、決め方。</p>
+        <p style="font-size:14.5px;line-height:1.9;">
+        <strong>「まず、現状だけ知りたい」</strong><br>→ ライフプラン診断で十分です。<br>物足りなければ、あとから<strong style="color:var(--teal-d);">差額でお切り替え</strong>いただけます。<br><br>
+        <strong>「動きたいけど、何から手をつけるか分からない」</strong><br>→ パーソナルCFOです。いちばん多いのは、この状態の方です。<br><br>
+        <strong>「会社と家、両方いっぺんに整理したい」</strong><br>→ 顧問です。別々に相談している時間が、もったいないからです。<br><br>
+        <strong>「そもそも、必要かどうかが分からない」</strong><br>→ それが、いちばん正常です。<br><strong style="color:var(--teal-d);">30分の初回相談で、必要かどうかから一緒に考えましょう。</strong><br>こちらは無料です。</p>
       </div>
 
       <div class="split" style="border-color:var(--teal);background:var(--teal-bg);">
