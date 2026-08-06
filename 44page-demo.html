@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>「44ページ」表現 9案｜比較デモ</title>
+<style>
+  :root{
+    --teal:#0d9488; --teal-d:#0f766e; --teal-l:#5eead4; --teal-bg:#f0fdfa;
+    --ink:#1f2937; --ink-sub:#4b5563; --line:#e5e7eb; --white:#fff;
+    --amber:#b45309; --amber-bg:#fffbeb; --rose:#e11d48; --rose-bg:#fff1f2;
+    --shadow:0 10px 30px rgba(13,148,136,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
+    color:var(--ink);background:#eef2f5;line-height:1.9;font-size:16px;letter-spacing:.02em;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+
+  /* ===== デモ用の枠（LPには不要） ===== */
+  .demo-head{background:#0b504a;color:#fff;padding:34px 20px;text-align:center;}
+  .demo-head h1{font-size:22px;font-weight:900;line-height:1.6;}
+  .demo-head p{font-size:13.5px;color:rgba(255,255,255,.8);margin-top:10px;line-height:1.85;}
+  .case{max-width:760px;margin:0 auto;padding:34px 16px 10px;}
+  .case-h{display:flex;align-items:baseline;gap:10px;margin-bottom:6px;}
+  .case-h .no{background:var(--teal);color:#fff;font-size:12px;font-weight:900;padding:4px 10px;border-radius:7px;}
+  .case-h h2{font-size:19px;font-weight:900;}
+  .case-c{font-size:14px;color:var(--ink-sub);margin-bottom:16px;}
+  .phone{width:390px;max-width:100%;margin:0 auto;background:#fff;border:9px solid #263238;border-radius:34px;
+    padding:20px 20px 24px;box-shadow:0 18px 40px rgba(15,23,42,.18);}
+  .meta{max-width:760px;margin:14px auto 0;padding:0 16px;display:grid;gap:8px;}
+  .meta div{font-size:13px;line-height:1.8;background:#fff;border-radius:10px;padding:11px 13px;color:var(--ink-sub);}
+  .meta b{color:var(--teal-d);}
+  .meta .lv{background:#fff7ed;color:#9a3412;}
+  .rec{border:2px solid var(--teal)!important;background:var(--teal-bg)!important;color:var(--teal-d)!important;font-weight:800;}
+  hr.sep{border:none;border-top:1px dashed #c7d2da;margin:34px auto 0;max-width:760px;}
+
+  /* ============================================================
+     ここから下が LP に貼り付ける CSS
+     ============================================================ */
+
+  /* --- 共通：セクション見出し --- */
+  .v-h{font-size:16px;font-weight:900;color:var(--ink);text-align:center;line-height:1.7;}
+  .v-s{font-size:13px;color:var(--ink-sub);text-align:center;margin-top:6px;line-height:1.8;}
+  .v-card{background:#fff;border:1.5px solid var(--teal);border-radius:18px;padding:24px 16px 22px;box-shadow:var(--shadow);}
+
+  /* ===== 案1：紙の束の比較（厚みゲージ） ===== */
+  .stkcmp{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:end;margin-top:24px;}
+  .stk{text-align:center;}
+  .stk-l{font-size:12px;font-weight:800;color:#9ca3af;line-height:1.5;margin-bottom:10px;height:36px;display:flex;align-items:flex-end;justify-content:center;}
+  .stk.on .stk-l{color:var(--teal-d);}
+  .stk-b{position:relative;width:100%;height:calc(var(--n)*3px);
+    background:repeating-linear-gradient(0deg,#fff 0 2px,#dde5ec 2px 3px);
+    border:1px solid #cbd5e1;border-right-width:2px;border-radius:1px 4px 4px 1px;}
+  .stk-b::before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px;border-radius:2px 5px 0 0;
+    background:linear-gradient(90deg,#94a3b8,#cbd5e1);}
+  .stk.on .stk-b{border-color:#9fd8d1;box-shadow:0 8px 20px rgba(13,148,136,.18);}
+  .stk.on .stk-b::before{background:linear-gradient(90deg,#0f766e,#14b8a6);}
+  .stk-n{margin-top:12px;font-size:13px;font-weight:800;color:#9ca3af;}
+  .stk-n em{font-style:normal;font-size:30px;font-weight:900;line-height:1;}
+  .stk.on .stk-n{color:var(--teal-d);}
+  .stk.on .stk-n em{font-size:44px;}
+  .stkcap{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:14px;line-height:1.85;text-align:center;color:var(--ink-sub);}
+  .stkcap b{color:var(--teal-d);font-weight:900;}
+
+  /* ===== 案2：44マスのページグリッド ===== */
+  .p44{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin-top:20px;}
+  .pc{position:relative;aspect-ratio:210/297;background:#fff;border:1px solid #e3e9ef;border-radius:2px;overflow:hidden;}
+  .pc::after{content:"";position:absolute;inset:3px 3px 5px;
+    background:repeating-linear-gradient(180deg,#e9eef3 0 1px,transparent 1px 4px);}
+  .pc.r{border:1px solid var(--teal);box-shadow:0 2px 6px rgba(13,148,136,.22);}
+  .pc.r::after{display:none;}
+  .pc.r img{width:100%;height:100%;object-fit:cover;object-position:top left;filter:saturate(.62) contrast(1.03);}
+  .pc.r b{position:absolute;left:0;bottom:0;background:var(--teal);color:#fff;
+    font-size:7px;font-weight:800;padding:1px 3px;border-radius:0 3px 0 0;letter-spacing:.02em;}
+  .p44cap{margin-top:16px;font-size:13px;line-height:1.85;color:var(--ink-sub);text-align:center;}
+  .p44cap b{color:var(--teal-d);}
+
+  /* ===== 案3：横スワイプ・ページカルーセル ===== */
+  .swipe{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding:4px 20px 14px;margin:18px -20px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .swipe::-webkit-scrollbar{display:none;}
+  .sw{flex:0 0 62%;scroll-snap-align:center;}
+  .sw figure{aspect-ratio:210/297;background:#fff;border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;box-shadow:0 10px 24px rgba(15,23,42,.13);display:grid;place-items:center;padding:8px;}
+  .sw figure img{width:100%;height:100%;object-fit:contain;filter:saturate(.68);}
+  .sw .pn{display:inline-block;margin-top:10px;background:var(--teal);color:#fff;font-size:10.5px;
+    font-weight:800;padding:2px 8px;border-radius:5px;letter-spacing:.06em;}
+  .sw .tt{font-size:12.5px;font-weight:700;color:var(--ink);margin-top:6px;line-height:1.6;}
+  .sw.more figure{background:var(--teal-bg);border:1.5px dashed var(--teal);box-shadow:none;
+    flex-direction:column;text-align:center;color:var(--teal-d);}
+  .sw.more .mn{font-size:38px;font-weight:900;line-height:1.1;}
+  .sw.more .mt{font-size:12.5px;font-weight:700;margin-top:4px;}
+  .swhint{text-align:center;font-size:12px;color:#9ca3af;margin-top:2px;}
+
+  /* ===== 案4：扇状（ファン） ===== */
+  .fan{position:relative;height:250px;margin-top:10px;}
+  .fan i{position:absolute;left:50%;bottom:38px;width:120px;aspect-ratio:210/297;margin-left:-60px;
+    background:#fff;border:1px solid var(--line);border-radius:5px;overflow:hidden;
+    transform-origin:50% 118%;box-shadow:0 8px 18px rgba(15,23,42,.16);}
+  .fan i img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:saturate(.6);}
+  .fan i:nth-child(1){transform:rotate(-21deg);} .fan i:nth-child(2){transform:rotate(-10.5deg);}
+  .fan i:nth-child(3){transform:rotate(0deg);z-index:2;} .fan i:nth-child(4){transform:rotate(10.5deg);}
+  .fan i:nth-child(5){transform:rotate(21deg);}
+
+  /* ===== 案5：本の目次フォーマット ===== */
+  .toc{list-style:none;margin-top:18px;}
+  .toc li{display:flex;align-items:flex-end;gap:0;padding:9px 0;}
+  .toc .tx{font-size:14px;font-weight:700;color:var(--ink);white-space:nowrap;}
+  .toc .tx small{display:block;font-size:11.5px;font-weight:500;color:#9ca3af;line-height:1.5;}
+  .toc .dot{flex:1;border-bottom:1.5px dotted #c9d3dc;margin:0 8px 7px;min-width:12px;}
+  .toc .pg{font-size:12px;font-weight:800;color:var(--teal-d);white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .toc li.key .tx{color:var(--rose);} .toc li.key .pg{color:var(--rose);}
+  .toc-f{margin-top:12px;padding-top:12px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;
+    font-size:13px;font-weight:900;}
+  .toc-f b{color:var(--teal-d);}
+
+  /* ===== 案6：ノンブル（13 / 44）＋進捗バー ===== */
+  .nomb{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;margin-top:18px;
+    box-shadow:0 8px 22px rgba(15,23,42,.10);}
+  .nomb .win{height:158px;overflow:hidden;position:relative;}
+  .nomb .win img{width:100%;filter:saturate(.6);}
+  .nomb .win::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;
+    background:linear-gradient(180deg,rgba(255,255,255,0),#fff 88%);}
+  .nomb .bar{padding:12px 14px 14px;border-top:1px solid var(--line);}
+  .nomb .bar .top{display:flex;align-items:baseline;justify-content:space-between;}
+  .nomb .n{font-size:22px;font-weight:900;color:var(--teal-d);font-variant-numeric:tabular-nums;line-height:1.2;}
+  .nomb .n small{font-size:13px;color:#9ca3af;font-weight:800;}
+  .nomb .t{font-size:12px;color:var(--ink-sub);}
+  .nomb .prog{height:7px;border-radius:99px;background:#e6edf2;margin-top:9px;overflow:hidden;}
+  .nomb .prog i{display:block;height:100%;width:29.5%;background:var(--teal);border-radius:99px;}
+  .nomb .cap{padding:11px 14px;font-size:12.5px;color:var(--ink-sub);line-height:1.75;background:#fbfdfe;border-top:1px solid var(--line);}
+  .nomb .cap b{color:var(--teal-d);}
+
+  /* ===== 案7：背表紙メーター（既存の改良版） ===== */
+  .spine2{margin-top:20px;}
+  .sp-bar{display:flex;height:46px;border-radius:8px;overflow:hidden;box-shadow:0 6px 16px rgba(15,23,42,.12);}
+  .sp-bar span{position:relative;display:grid;place-items:center;color:#fff;font-size:10.5px;font-weight:800;
+    background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 1px,transparent 1px 6px);}
+  .sp-bar .s1{flex:8;background-color:#5eead4;color:#0b504a;}
+  .sp-bar .s2{flex:10;background-color:#2dd4bf;color:#0b504a;}
+  .sp-bar .s3{flex:12;background-color:#14b8a6;}
+  .sp-bar .s4{flex:6;background-color:#0d9488;}
+  .sp-bar .s5{flex:8;background-color:#e11d48;}
+  .sp-sc{display:flex;justify-content:space-between;font-size:10px;color:#9ca3af;margin-top:5px;}
+
+  /* ===== 案8：物量に換算 ===== */
+  .qty{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px;}
+  .qty div{background:var(--teal-bg);border-radius:12px;padding:14px 4px;text-align:center;
+    display:flex;flex-direction:column;justify-content:center;gap:4px;min-height:96px;}
+  .qty .qv{font-size:23px;font-weight:900;color:var(--teal-d);line-height:1.15;white-space:nowrap;}
+  .qty .qv i{font-style:normal;font-size:12px;margin-left:1px;}
+  .qty .ql{font-size:11px;color:var(--ink-sub);font-weight:700;margin-top:5px;line-height:1.5;}
+
+  /* ===== 案9：見開き ===== */
+  .spread{display:flex;justify-content:center;margin-top:18px;perspective:1200px;}
+  .spread .bk{display:flex;width:100%;max-width:330px;aspect-ratio:2/1.42;
+    box-shadow:0 18px 38px rgba(15,23,42,.26);transform:rotateX(9deg);}
+  .spread .pg{flex:1;background:#fff;overflow:hidden;position:relative;}
+  .spread .pg img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:saturate(.62);}
+  .spread .pg.l{border-radius:5px 0 0 5px;box-shadow:inset -14px 0 18px -14px rgba(15,23,42,.5);}
+  .spread .pg.r{border-radius:0 5px 5px 0;box-shadow:inset 14px 0 18px -14px rgba(15,23,42,.5);}
+  .spread .pg em{position:absolute;bottom:4px;font-style:normal;font-size:8px;color:#94a3b8;}
+  .spread .pg.l em{left:8px;} .spread .pg.r em{right:8px;}
+</style>
+</head>
+<body>
+
+<div class="demo-head">
+  <h1>「44ページ」を、スマホで一目で伝える<br>― 9案 比較デモ ―</h1>
+  <p>各案は実機幅(390px)の枠で表示しています。<br>採用する案のHTMLブロックとCSSブロックを、index.html にコピーしてください。</p>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     案1｜厚みで比較する
+     ══════════════════════════════════════════════════════ -->
+<div class="case">
+  <div class="case-h"><span class="no">案 1</span><h2>紙の束の、高さ比較</h2></div>
+  <p class="case-c">コンセプト：「44」を数字でなく<b>高さの差</b>で見せる。比較対象を置いて相対化する。</p>
+  <div class="phone">
+
+    <!-- ▼ ここからLPに貼る（案1） ▼ -->
+    <div class="v-card">
+      <div class="v-h">44ページ、というのは<br>こういう厚みです。</div>
+
+      <div class="stkcmp">
+        <div class="stk" style="--n:4">
+          <div class="stk-l">よくある<br>提案書・見積書</div>
+          <div class="stk-b"></div>
+          <div class="stk-n"><em>3</em>〜5ページ</div>
+        </div>
+        <div class="stk on" style="--n:44">
+          <div class="stk-l">あなたの<br>ライフプラン設計書</div>
+          <div class="stk-b"></div>
+          <div class="stk-n"><em>44</em>ページ</div>
+        </div>
+      </div>
+
+      <p class="stkcap">
+        1ページ1ページ、<b>あなたの数字</b>で計算します。<br>
+        ネットの記事にも、本にも載っていない1冊です。
+      </p>
+    </div>
+    <!-- ▲ ここまで（案1） ▲ -->
+
+  </div>
+</div>
+<div class="meta">
+  <div class="rec">★ 最推奨。0.5秒で「厚い」が伝わる。画像不要・軽量・崩れない。</div>
+  <div><b>なぜ伝わるか：</b>人は「44」という絶対数を単独では評価できません（評価容易性の問題）。隣に「3ページ」を置いた瞬間、比較で意味が生まれます。さらに高さの差は<b>前注意的処理</b>——読む前に、見た瞬間に処理されます。</div>
+  <div class="lv">難易度：低／工数：30分／画像：不要</div>
+  <div>注意：「よくある提案書は3〜5ページ」は事実ベースの表現に留めています（断定的な業界統計は避ける）。</div>
+</div>
+<hr class="sep">
+
+
+<!-- ══════════════════════════════════════════════════════
+     案2｜44マスのページグリッド
+     ══════════════════════════════════════════════════════ -->
+<div class="case">
+  <div class="case-h"><span class="no">案 2</span><h2>44マスの、ページ一覧</h2></div>
+  <p class="case-c">コンセプト：44を<b>数えられる形</b>で並べる。実ページ8枚を、実際のページ番号の位置に埋める。</p>
+  <div class="phone">
+
+    <!-- ▼ ここからLPに貼る（案2） ▼ -->
+    <div class="v-card">
+      <div class="v-h">これが、44ページです。</div>
+      <div class="v-s">青く光っている8枚が、実物のページです。</div>
+
+      <div class="p44">
+        <span class="pc"></span><span class="pc"></span><span class="pc"></span>
+        <span class="pc r"><img src="images/doc-kyoiku-04.png" alt="教育費の計画"><b>04</b></span>
+        <span class="pc"></span><span class="pc"></span><span class="pc"></span>
+        <span class="pc r"><img src="images/doc-shishutsu-08.png" alt="支出の内訳"><b>08</b></span>
+        <span class="pc r"><img src="images/doc-event-09.png" alt="ライフイベント"><b>09</b></span>
+        <span class="pc r"><img src="images/doc-dash-10.png" alt="資産と負債"><b>10</b></span>
+        <span class="pc"></span>
+        <span class="pc r"><img src="images/doc-suii-12.png" alt="資産推移"><b>12</b></span>
+        <span class="pc r"><img src="images/doc-cf-13.png" alt="60年分の収支表"><b>13</b></span>
+        <span class="pc"></span>
+        <span class="pc r"><img src="images/doc-cfgraph-15.png" alt="収支グラフ"><b>15</b></span>
+        <span class="pc"></span><span class="pc"></span><span class="pc"></span><span class="pc"></span>
+        <span class="pc r"><img src="images/doc-hosho-20.png" alt="必要保障額"><b>20</b></span>
+        <span class="pc"></span><span class="pc"></span><span class="pc"></span><span class="pc"></span>
+        <span class="pc"></span><span class="pc"></span><span class="pc"></span><span class="pc"></span>
+        <span class="pc"></span><span class="pc"></span><span class="pc"></span><span class="pc"></span>
+        <span class="pc"></span><span class="pc"></span><span class="pc"></span><span class="pc"></span>
+        <span class="pc"></span><span class="pc"></span><span class="pc"></span><span class="pc"></span>
+        <span class="pc"></span><span class="pc"></span><span class="pc"></span><span class="pc"></span>
+      </div>
+
+      <p class="p44cap">1マスが、1ページ。<br><b>全部あなたの数字で、44枚。</b></p>
+    </div>
+    <!-- ▲ ここまで（案2） ▲ -->
+
+  </div>
+</div>
+<div class="meta">
+  <div class="rec">★ 推奨。「44」の量と「中身の実在」を同時に見せられる唯一の案。</div>
+  <div><b>なぜ伝わるか：</b>グリッドは数量を<b>数えなくても面積で把握</b>できます。さらに実ページを「4番目・8番目・13番目…」と本当の位置に置くことで、飛んでいる番号が「間にもページがある」ことを勝手に想像させます（クロージャの法則）。</div>
+  <div>青系の色ズレ対策：<b>縮小＋saturate(.62)</b> で青は「インクの色」に見え、ティールと喧嘩しません。枠と番号バッジをティールで統一して回収しています。</div>
+  <div class="lv">難易度：中／工数：1時間／画像：既存8枚をそのまま使用</div>
+</div>
+<hr class="sep">
+
+
+<!-- ══════════════════════════════════════════════════════
+     案3｜横スワイプ
+     ══════════════════════════════════════════════════════ -->
+<div class="case">
+  <div class="case-h"><span class="no">案 3</span><h2>指で「めくる」ページ</h2></div>
+  <p class="case-c">コンセプト：スワイプして<b>自分の指で量を体感</b>させる。最後に「+36ページ」で締める。</p>
+  <div class="phone">
+
+    <!-- ▼ ここからLPに貼る（案3） ▼ -->
+    <div class="v-card">
+      <div class="v-h">中を、めくってみてください。</div>
+      <div class="v-s">← 横にスワイプできます</div>
+
+      <div class="swipe">
+        <div class="sw"><figure><img src="images/doc-dash-10.png" alt="資産と負債"></figure>
+          <span class="pn">P.10</span><div class="tt">資産と負債の、棚卸し</div></div>
+        <div class="sw"><figure><img src="images/doc-suii-12.png" alt="資産推移"></figure>
+          <span class="pn">P.12</span><div class="tt">100年分の、資産推移</div></div>
+        <div class="sw"><figure><img src="images/doc-cf-13.png" alt="収支表"></figure>
+          <span class="pn">P.13</span><div class="tt">1歳きざみ、60年分の収支表</div></div>
+        <div class="sw"><figure><img src="images/doc-cfgraph-15.png" alt="収支グラフ"></figure>
+          <span class="pn">P.15</span><div class="tt">お金の、出入りの全体像</div></div>
+        <div class="sw"><figure><img src="images/doc-hosho-20.png" alt="必要保障額"></figure>
+          <span class="pn">P.20</span><div class="tt">万一のときの、過不足</div></div>
+        <div class="sw more"><figure><span class="mn">+36</span><span class="mt">ページ、続きます</span></figure>
+          <span class="pn">P.21–44</span><div class="tt">改善プランまで、全部あります</div></div>
+      </div>
+
+      <p class="p44cap" style="margin-top:6px;">合わせて、<b>全44ページ</b>。</p>
+    </div>
+    <!-- ▲ ここまで（案3） ▲ -->
+
+  </div>
+</div>
+<div class="meta">
+  <div class="rec">★ 推奨。案1とセットで使うと「厚み → 中身」の流れが完成します。</div>
+  <div><b>なぜ伝わるか：</b>スワイプは<b>身体を使った操作</b>です。指を3回動かしてもまだ終わらない＝量が体に残ります。読んで理解する量より、操作して感じた量のほうが強く記憶されます。</div>
+  <div>JSゼロ（CSS scroll-snap のみ）。iOS Safari 対応済み。カードは画面幅の62%＝「次がある」ことが必ず見切れて伝わる寸法です。</div>
+  <div class="lv">難易度：中／工数：1時間／画像：既存5〜8枚</div>
+</div>
+<hr class="sep">
+
+
+<!-- ══════════════════════════════════════════════════════
+     案4｜扇状
+     ══════════════════════════════════════════════════════ -->
+<div class="case">
+  <div class="case-h"><span class="no">案 4</span><h2>扇状に広げたページ</h2></div>
+  <p class="case-c">コンセプト：トランプのように扇で広げ、<b>複数枚あること</b>を一枚絵で見せる。</p>
+  <div class="phone">
+
+    <!-- ▼ ここからLPに貼る（案4） ▼ -->
+    <div class="v-card">
+      <div class="v-h">1冊に、これだけ入っています。</div>
+      <div class="fan">
+        <i><img src="images/doc-kyoiku-04.png" alt=""></i>
+        <i><img src="images/doc-shishutsu-08.png" alt=""></i>
+        <i><img src="images/doc-cf-13.png" alt=""></i>
+        <i><img src="images/doc-cfgraph-15.png" alt=""></i>
+        <i><img src="images/doc-hosho-20.png" alt=""></i>
+      </div>
+      <p class="p44cap" style="margin-top:8px;">この調子で、<b>44ページ</b>あります。</p>
+    </div>
+    <!-- ▲ ここまで（案4） ▲ -->
+
+  </div>
+</div>
+<div class="meta">
+  <div><b>なぜ伝わるか：</b>重なりは奥行き＝量の手がかり。ただし<b>スマホでは1枚あたりが小さくなり、中身が読めません</b>。「たくさんある」までは伝わりますが「中身が濃い」は伝わりません。</div>
+  <div class="lv">難易度：中／工数：40分／単独採用は非推奨（案1や案3の補助として）</div>
+</div>
+<hr class="sep">
+
+
+<!-- ══════════════════════════════════════════════════════
+     案5｜目次
+     ══════════════════════════════════════════════════════ -->
+<div class="case">
+  <div class="case-h"><span class="no">案 5</span><h2>本の「目次」フォーマット</h2></div>
+  <p class="case-c">コンセプト：既存のリストを、<b>本物の目次の書式</b>（リーダー線＋ページ範囲）に置き換えるだけ。</p>
+  <div class="phone">
+
+    <!-- ▼ ここからLPに貼る（案5） ▼ -->
+    <div class="v-card">
+      <div class="v-h" style="letter-spacing:.2em;font-size:13px;color:var(--teal-d);">C O N T E N T S</div>
+      <div class="v-s">ライフプラン設計書／目次</div>
+
+      <ol class="toc">
+        <li><span class="tx">1. いまの現状<small>収入・支出・資産・備えの棚卸し</small></span>
+            <span class="dot"></span><span class="pg">P.1–8</span></li>
+        <li><span class="tx">2. 100年分の資産推移<small>何歳で、いくら足りなくなるか</small></span>
+            <span class="dot"></span><span class="pg">P.9–18</span></li>
+        <li><span class="tx">3. 60年分の収支表<small>1歳きざみの、収入と支出と残高</small></span>
+            <span class="dot"></span><span class="pg">P.19–30</span></li>
+        <li><span class="tx">4. 万一のときの過不足<small>残された家族に、いくら必要か</small></span>
+            <span class="dot"></span><span class="pg">P.31–36</span></li>
+        <li class="key"><span class="tx">5. 改善プラン<small>で、何をすればいいのか ← ここが本題</small></span>
+            <span class="dot"></span><span class="pg">P.37–44</span></li>
+      </ol>
+
+      <div class="toc-f"><span>総ページ数</span><span><b>44</b> ページ</span></div>
+    </div>
+    <!-- ▲ ここまで（案5） ▲ -->
+
+  </div>
+</div>
+<div class="meta">
+  <div class="rec">★ 推奨（既存リストの置き換え）。今の5行リストを、この書式にするだけで「本」になります。</div>
+  <div><b>なぜ伝わるか：</b>「8ページ｜〜」は<b>個数の羅列</b>ですが、「P.1–8 / P.9–18 …」は<b>連続した通し番号</b>です。番号が途切れず44まで到達することで、頭の中で1冊につながります。リーダー線（点線）は "目次" という形式の記号そのもので、見た瞬間に本を連想させます。</div>
+  <div class="lv">難易度：低／工数：20分／画像：不要</div>
+</div>
+<hr class="sep">
+
+
+<!-- ══════════════════════════════════════════════════════
+     案6｜ノンブル拡大
+     ══════════════════════════════════════════════════════ -->
+<div class="case">
+  <div class="case-h"><span class="no">案 6</span><h2>ノンブル「13 / 44」と、残りページ</h2></div>
+  <p class="case-c">コンセプト：1ページを見せながら<b>「これで13枚目。まだ31枚ある」</b>と残量を突きつける。</p>
+  <div class="phone">
+
+    <!-- ▼ ここからLPに貼る（案6） ▼ -->
+    <div class="v-card" style="padding:20px 16px;">
+      <div class="v-h">これで、まだ13枚目です。</div>
+      <div class="nomb">
+        <div class="win"><img src="images/doc-cf-13.png" alt="60年分の収支表"></div>
+        <div class="bar">
+          <div class="top">
+            <div class="n">13 <small>/ 44</small></div>
+            <div class="t">60年分の収支表</div>
+          </div>
+          <div class="prog"><i></i></div>
+        </div>
+        <div class="cap">この密度の紙が、<b>あと31枚</b>続きます。<br>全部、あなたの数字です。</div>
+      </div>
+    </div>
+    <!-- ▲ ここまで（案6） ▲ -->
+
+  </div>
+</div>
+<div class="meta">
+  <div><b>なぜ伝わるか：</b>進捗バーが3割しか埋まっていない状態は、<b>「残りがある」ことを言葉より速く伝えます</b>。しかも見えているのは数字びっしりの1枚。「この重さ × あと31枚」という掛け算が、頭の中で自動的に起きます。</div>
+  <div><b>【重要な発見】</b>実物 doc-cf-13.png の右下には本物のノンブル「13/44」が印字されていますが、<b>書き出し時に下端で切れており（文字の上6pxしか写っていません）、拡大しても使えません。</b>そのページを下マージン込みで書き出し直せば、"本物の証拠"としてさらに強くなります。現状はCSSで「13 / 44」を組んでいます（内容は実物どおり）。</div>
+  <div class="lv">難易度：低／工数：25分／画像：既存1枚／単独よりは案1・案2への添え物として</div>
+</div>
+<hr class="sep">
+
+
+<!-- ══════════════════════════════════════════════════════
+     案7｜背表紙メーター改良
+     ══════════════════════════════════════════════════════ -->
+<div class="case">
+  <div class="case-h"><span class="no">案 7</span><h2>背表紙メーター（現行の改良版）</h2></div>
+  <p class="case-c">コンセプト：現行の縦棒グラフを、<b>1本の背表紙</b>にまとめて章の比率を見せる。</p>
+  <div class="phone">
+
+    <!-- ▼ ここからLPに貼る（案7） ▼ -->
+    <div class="v-card">
+      <div class="v-h">44ページの、内訳です。</div>
+      <div class="spine2">
+        <div class="sp-bar">
+          <span class="s1">8p</span><span class="s2">10p</span><span class="s3">12p</span>
+          <span class="s4">6p</span><span class="s5">8p</span>
+        </div>
+        <div class="sp-sc"><span>1</span><span>44ページ</span></div>
+      </div>
+      <p class="p44cap" style="margin-top:14px;">赤い部分が<b>改善プラン</b>。<br>あなたが読むのは、ここだけで大丈夫です。</p>
+    </div>
+    <!-- ▲ ここまで（案7） ▲ -->
+
+  </div>
+</div>
+<div class="meta">
+  <div><b>なぜ伝わるか：</b>比率は分かりますが、<b>「厚い」という感情は動きません</b>。棒グラフは"分析"の記号であって"物量"の記号ではないためです。現行案がイメージを喚起しなかった理由もここにあります。</div>
+  <div class="lv">難易度：低／工数：15分／単独採用は非推奨（案1の下に置く要約として）</div>
+</div>
+<hr class="sep">
+
+
+<!-- ══════════════════════════════════════════════════════
+     案8｜物量換算
+     ══════════════════════════════════════════════════════ -->
+<div class="case">
+  <div class="case-h"><span class="no">案 8</span><h2>別の単位に、換算する</h2></div>
+  <p class="case-c">コンセプト：ページ数を<b>マス目の数・年数・厚み</b>という別単位に置き換えて量を実感させる。</p>
+  <div class="phone">
+
+    <!-- ▼ ここからLPに貼る（案8） ▼ -->
+    <div class="v-card">
+      <div class="v-h">44ページを、<br>別の言い方にすると。</div>
+      <div class="qty">
+        <div><div class="qv">1,000<i>超</i></div><div class="ql">計算した<br>マス目の数</div></div>
+        <div><div class="qv">100<i>年</i></div><div class="ql">計算する<br>期間</div></div>
+        <div><div class="qv">1<i>歳</i></div><div class="ql">きざみで<br>全部出す</div></div>
+      </div>
+      <p class="p44cap">40歳から100歳まで、1年も飛ばしません。<br><b>その全部が、あなたの数字です。</b></p>
+    </div>
+    <!-- ▲ ここまで（案8） ▲ -->
+
+  </div>
+</div>
+<div class="meta">
+  <div><b>なぜ伝わるか：</b>ページ数は"入れ物"の量ですが、マス目・年数は<b>中身の密度</b>です。「44ページ」でピンと来ない人にも「1歳きざみで100年分」は刺さります。数字はすべて実物（P.13の表）から検証できる範囲に留めています。</div>
+  <div class="lv">難易度：低／工数：25分／画像：不要／案1・案5と相性◎</div>
+</div>
+<hr class="sep">
+
+
+<!-- ══════════════════════════════════════════════════════
+     案9｜見開き
+     ══════════════════════════════════════════════════════ -->
+<div class="case">
+  <div class="case-h"><span class="no">案 9</span><h2>開いた見開き</h2></div>
+  <p class="case-c">コンセプト：閉じた本（LP冒頭に既出）ではなく、<b>開いて中を見せる</b>。</p>
+  <div class="phone">
+
+    <!-- ▼ ここからLPに貼る（案9） ▼ -->
+    <div class="v-card">
+      <div class="v-h">開くと、こうなっています。</div>
+      <div class="spread">
+        <div class="bk">
+          <div class="pg l"><img src="images/doc-cf-13.png" alt=""><em>12</em></div>
+          <div class="pg r"><img src="images/doc-cfgraph-15.png" alt=""><em>13</em></div>
+        </div>
+      </div>
+      <p class="p44cap" style="margin-top:16px;">この見開きが、<b>22組</b>。<br>合わせて44ページです。</p>
+    </div>
+    <!-- ▲ ここまで（案9） ▲ -->
+
+  </div>
+</div>
+<div class="meta">
+  <div><b>なぜ伝わるか：</b>「見開き22組＝44ページ」という言い換えは効きますが、<b>画面が横長になるぶんスマホでは1ページが小さくなります</b>。LP冒頭の3D冊子モックアップと役割が重複するのも難点です。</div>
+  <div class="lv">難易度：中／工数：40分／単独採用は非推奨</div>
+</div>
+<hr class="sep">
+
+
+<div class="case">
+  <div class="case-h"><span class="no">結論</span><h2>推奨の組み合わせ</h2></div>
+  <p class="case-c">
+    <b>案1（厚み比較）→ 案5（目次）→ 案3（スワイプ）</b>の順で1セクションを構成するのが最適です。<br>
+    ① まず0.5秒で「厚い」と感じさせ（案1）<br>
+    ② 何が書いてあるかを本の書式で示し（案5）<br>
+    ③ 実物を指でめくって確かめてもらう（案3）。<br>
+    案6のノンブル（13/44）を案3のカード内に小さく添えると、証拠が効きます。<br>
+    最小工数で改善したい場合は、<b>案1＋案5だけ（画像不要・約1時間）</b>でも効果は出ます。
+  </p>
+</div>
+<div style="height:60px;"></div>
+
+</body>
+</html>
