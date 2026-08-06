@@ -531,15 +531,49 @@
 
       <!-- 44ページメーター -->
       <div class="volm">
-        <div class="spine" id="spine" aria-hidden="true"></div>
-        <div class="chap">
-          <span style="--n:8">現状分析</span>
-          <span style="--n:10">資産推移</span>
-          <span style="--n:12">収支60年</span>
-          <span style="--n:6">備え</span>
-          <span style="--n:8">改善プラン</span>
+        <div style="font-size:15px;font-weight:800;color:var(--ink);text-align:center;margin-bottom:18px;">44ページの、中身です。</div>
+
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="flex:0 0 62px;font-size:13px;font-weight:800;color:var(--teal-d);text-align:right;">8<span style="font-size:11px;">ページ</span></div>
+            <div style="flex:1;background:var(--teal-bg);border-radius:8px;padding:10px 13px;">
+              <div style="font-size:13.5px;font-weight:700;color:var(--ink);">いまの現状</div>
+              <div style="font-size:12px;color:var(--ink-sub);">収入・支出・資産・備えの棚卸し</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="flex:0 0 62px;font-size:13px;font-weight:800;color:var(--teal-d);text-align:right;">10<span style="font-size:11px;">ページ</span></div>
+            <div style="flex:1;background:var(--teal-bg);border-radius:8px;padding:10px 13px;">
+              <div style="font-size:13.5px;font-weight:700;color:var(--ink);">100年分の資産推移</div>
+              <div style="font-size:12px;color:var(--ink-sub);">何歳で、いくら足りなくなるか</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="flex:0 0 62px;font-size:13px;font-weight:800;color:var(--teal-d);text-align:right;">12<span style="font-size:11px;">ページ</span></div>
+            <div style="flex:1;background:var(--teal-bg);border-radius:8px;padding:10px 13px;">
+              <div style="font-size:13.5px;font-weight:700;color:var(--ink);">60年分の収支表</div>
+              <div style="font-size:12px;color:var(--ink-sub);">1歳きざみの、収入と支出と残高</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="flex:0 0 62px;font-size:13px;font-weight:800;color:var(--teal-d);text-align:right;">6<span style="font-size:11px;">ページ</span></div>
+            <div style="flex:1;background:var(--teal-bg);border-radius:8px;padding:10px 13px;">
+              <div style="font-size:13.5px;font-weight:700;color:var(--ink);">万一のときの、過不足</div>
+              <div style="font-size:12px;color:var(--ink-sub);">残された家族に、いくら必要か</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="flex:0 0 62px;font-size:13px;font-weight:800;color:var(--rose);text-align:right;">8<span style="font-size:11px;">ページ</span></div>
+            <div style="flex:1;background:var(--rose-bg);border:1.5px solid #fda4af;border-radius:8px;padding:10px 13px;">
+              <div style="font-size:13.5px;font-weight:800;color:var(--ink);">改善プラン ← ここがいちばん大事</div>
+              <div style="font-size:12px;color:var(--ink-sub);">で、何をすればいいのか。<strong style="color:var(--rose);">あなたが読むのは、ここです。</strong></div>
+            </div>
+          </div>
         </div>
-        <p class="volt">合わせて、<b>全44ページ</b>。<br>あなたの名前が入った、世界に1冊です。</p>
+
+        <p class="volt" style="margin-top:20px;padding-top:18px;border-top:1px solid var(--line);">
+        合わせて、<b>全44ページ</b>。<br>
+        <span style="font-size:14px;">ネットの記事にも、本にも書いていない、<br><strong style="color:var(--teal-d);">あなたの数字だけで作った1冊</strong>です。</span></p>
       </div>
     </div>
   </section>
@@ -1017,16 +1051,6 @@
       </p>
     </div>
   </section>
-
-  <script>
-    // 44ページ分の背表紙を生成
-    (function(){
-      const s=document.getElementById('spine');
-      if(!s) return;
-      const h=[62,70,55,78,66,84,58,72,90,64,76,60,88,68,54,80,74,62,86,58,70,92,66,56,78,64,82,60,74,68,88,54,76,70,62,84,58,80,66,72,90,56,68,78];
-      s.innerHTML = h.map(v=>`<i style="--h:${v}%"></i>`).join('');
-    })();
-  </script>
 
   <footer>
     <div class="wrap">
