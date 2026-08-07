@@ -192,6 +192,14 @@ html,body{overflow-x:hidden;max-width:100%;}
   .sw.last .lz span{display:block;font-size:11.5px;margin-top:9px;line-height:1.75;color:var(--ink-sub);}
   .swhint{text-align:center;font-size:11.5px;color:#9ca3af;margin-top:-4px;letter-spacing:.04em;}
 
+  /* 現場フォトモザイク */
+  .vhero{border-radius:18px;overflow:hidden;box-shadow:var(--shadow-img);aspect-ratio:16/9;margin-bottom:10px;}
+  .vhero img{width:100%;height:100%;object-fit:cover;display:block;}
+  .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;}
+  .vgrid figure{border-radius:10px;overflow:hidden;aspect-ratio:1/1;background:#eef2f5;}
+  .vgrid figure img{width:100%;height:100%;object-fit:cover;display:block;}
+  .vgrid figure:nth-child(1),.vgrid figure:nth-child(6),.vgrid figure:nth-child(11){grid-column:span 2;aspect-ratio:2/1;}
+
   /* インフォグラフィックカード */
   .ic{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 17px;box-shadow:0 12px 30px rgba(15,23,42,.08);margin-bottom:20px;}
   .ic-q{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.7;margin-bottom:5px;}
@@ -637,13 +645,26 @@ html,body{overflow-x:hidden;max-width:100%;}
     <div class="wrap">
       <div class="kicker">これまでの現場</div>
       <h2>お金と本気で向き合う人が、<br><em>すでに集まっています。</em></h2>
-      <div class="docs" style="grid-template-columns:1fr;gap:12px;">
-        <figure style="aspect-ratio:16/9;border-radius:16px;"><img src="images/group.jpg" alt="勉強会の集合写真"></figure>
+      <div class="vhero"><img src="images/venue-hero.jpg" alt="勉強会の集合写真"></div>
+      <div class="vgrid">
+        <figure><img src="images/venue-01.jpg" alt="満席の勉強会" loading="lazy"></figure>
+        <figure><img src="images/venue-02.jpg" alt="勉強会の集合写真" loading="lazy"></figure>
+        <figure><img src="images/venue-03.jpg" alt="経営者向けセミナー" loading="lazy"></figure>
+        <figure><img src="images/venue-04.jpg" alt="グループワーク" loading="lazy"></figure>
+        <figure><img src="images/venue-05.jpg" alt="受講の様子" loading="lazy"></figure>
+        <figure><img src="images/venue-06.jpg" alt="会場全景" loading="lazy"></figure>
+        <figure><img src="images/venue-07.jpg" alt="商工会でのセミナー" loading="lazy"></figure>
+        <figure><img src="images/venue-08.jpg" alt="スクリーンでの解説" loading="lazy"></figure>
+        <figure><img src="images/venue-09.jpg" alt="参加者同士の交流" loading="lazy"></figure>
+        <figure><img src="images/venue-10.jpg" alt="ワークショップ" loading="lazy"></figure>
+        <figure><img src="images/venue-11.jpg" alt="会場後方から" loading="lazy"></figure>
+        <figure><img src="images/venue-12.jpg" alt="勉強会のあとで" loading="lazy"></figure>
       </div>
-      <div class="docs">
-        <figure style="border-radius:14px;"><img src="images/talk.jpg" alt="少人数での相談"></figure>
-        <figure style="border-radius:14px;"><img src="images/venue-story.jpg" alt="セミナーの様子"></figure>
-      </div>
+
+      <p style="text-align:center;font-size:13px;color:#9ca3af;line-height:1.8;margin-top:14px;">
+      商工会議所・税務署・法人会・企業研修・学校など、<br>これまでにお話ししてきた現場の一部です。</p>
+
+
       <p style="text-align:center;font-size:15px;color:var(--ink-sub);line-height:1.95;margin-top:18px;">
         経営者の方も、ご家庭の方も。<br>
         立場は違っても、悩みの根っこは同じです。<br>
