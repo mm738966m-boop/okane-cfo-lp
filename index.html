@@ -6,6 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>パーソナルCFO｜あなた専属の、お金の参謀</title>
 <style>
+html,body{overflow-x:hidden;max-width:100%;}
   :root{
     --teal:#0d9488; --teal-d:#0f766e; --teal-l:#5eead4; --teal-bg:#f0fdfa;
     --ink:#1f2937; --ink-sub:#4b5563; --line:#e5e7eb; --white:#fff;
@@ -15,7 +16,7 @@
     --shadow-img:0 16px 40px rgba(15,23,42,.16);
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
   body{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
     color:var(--ink);background:var(--white);line-height:1.95;font-size:16px;letter-spacing:.02em;-webkit-font-smoothing:antialiased;}
   .wrap{max-width:620px;margin:0 auto;padding:0 20px;}
@@ -145,7 +146,7 @@
 
   /* 成果物ギャラリー */
   /* 冊子モックアップ */
-  .bookwrap{position:relative;display:flex;justify-content:center;padding:34px 0 46px;perspective:1400px;}
+  .bookwrap{position:relative;display:flex;justify-content:center;padding:40px 0 46px;perspective:1400px;}
   .book{position:relative;width:222px;aspect-ratio:210/297;transform:rotateY(-15deg) rotateX(5deg) rotate(-2deg);transform-style:preserve-3d;}
   .book .stack{position:absolute;inset:0;border-radius:3px 9px 9px 3px;background:#fff;
     box-shadow:2px 1px 0 #f1f5f9,4px 1px 0 #e6ecf2,6px 2px 0 #f4f7fa,8px 2px 0 #e2e8f0,10px 3px 0 #f1f5f9,12px 3px 0 #dfe6ee,14px 4px 0 #f4f7fa,16px 4px 0 #e2e8f0;}
@@ -162,6 +163,34 @@
   .cv-meta{margin-top:12px;padding-top:11px;font-size:10px;opacity:.8;letter-spacing:.05em;border-top:1px solid rgba(255,255,255,.28);}
   .bookwrap::after{content:"";position:absolute;bottom:30px;left:50%;width:246px;height:22px;transform:translateX(-46%);
     background:radial-gradient(ellipse,rgba(15,23,42,.30),transparent 70%);filter:blur(7px);z-index:-1;}
+
+  /* 扇状の中紙（冊子の背後） */
+  .fanback{position:absolute;left:50%;top:34px;width:0;height:0;z-index:0;}
+  .fanback i{position:absolute;display:block;width:140px;aspect-ratio:210/278;margin-left:-70px;
+    background:#fff;border:1px solid #dfe6ee;border-radius:4px;overflow:hidden;
+    transform-origin:50% 150%;box-shadow:0 12px 24px rgba(15,23,42,.18);}
+  .fanback i img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:saturate(.4) contrast(.92);opacity:.92;}
+  .fanback i:nth-child(1){transform:rotate(-36deg);}
+  .fanback i:nth-child(2){transform:rotate(-18deg);}
+  .fanback i:nth-child(3){transform:rotate(18deg);}
+  .fanback i:nth-child(4){transform:rotate(36deg);}
+  .bookwrap .book{z-index:1;}
+
+  /* 実物ページ・スワイプ */
+  .swipe{display:flex;gap:13px;overflow-x:auto;scroll-snap-type:x mandatory;max-width:100vw;
+    padding:4px 20px 16px;margin:0 calc(50% - 50vw);-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .swipe::-webkit-scrollbar{display:none;}
+  .sw{flex:0 0 66%;scroll-snap-align:center;}
+  .sw .q{font-size:13px;font-weight:800;color:var(--ink);line-height:1.65;margin-bottom:9px;min-height:42px;}
+  .sw figure{aspect-ratio:210/250;background:#fff;border:1px solid var(--line);border-radius:11px;
+    overflow:hidden;box-shadow:0 12px 26px rgba(15,23,42,.13);display:grid;place-items:center;padding:9px;}
+  .sw figure img{width:100%;height:100%;object-fit:contain;}
+  .sw .tt{font-size:11.5px;font-weight:700;color:var(--teal-d);margin-top:8px;letter-spacing:.02em;}
+  .sw.last figure{background:var(--teal-bg);border:1.5px dashed var(--teal);box-shadow:none;}
+  .sw.last .lz{text-align:center;color:var(--teal-d);padding:0 10px;}
+  .sw.last .lz b{display:block;font-size:16px;font-weight:900;line-height:1.6;}
+  .sw.last .lz span{display:block;font-size:11.5px;margin-top:9px;line-height:1.75;color:var(--ink-sub);}
+  .swhint{text-align:center;font-size:11.5px;color:#9ca3af;margin-top:-4px;letter-spacing:.04em;}
 
   /* インフォグラフィックカード */
   .ic{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 17px;box-shadow:0 12px 30px rgba(15,23,42,.08);margin-bottom:20px;}
@@ -279,18 +308,75 @@
 
       <!-- 冊子モックアップ -->
       <div class="bookwrap">
+        <div class="fanback" aria-hidden="true">
+          <i><img src="images/doc-suii-12.png" alt=""></i>
+          <i><img src="images/doc-cf-13.png" alt=""></i>
+          <i><img src="images/doc-shishutsu-08.png" alt=""></i>
+          <i><img src="images/doc-hosho-20.png" alt=""></i>
+        </div>
         <div class="book">
           <span class="stack"></span>
           <div class="cover">
             <span class="cv-brand">PERSONAL CFO</span>
             <h3 class="cv-title">ライフプラン<br>設計書</h3>
             <span class="cv-name"><i></i> 様</span>
-            <span class="cv-meta">全 44 ページ ／ fulfull株式会社</span>
+            <span class="cv-meta">fulfull株式会社 ／ パーソナルCFO</span>
           </div>
         </div>
       </div>
 
-      <p class="lead" style="text-align:center;">あなたのお金の"わからない"に、<br>ぜんぶ、数字でお答えします。<br><span style="font-size:13.5px;color:#9ca3af;">——ここでは、そのうち5つをお見せします。</span></p>
+      <p class="lead" style="text-align:center;">この1冊は、<br><strong style="color:var(--teal-d);">あなたの質問に答えるため</strong>だけに作ります。<br><span style="font-size:13.5px;color:#9ca3af;">——実際のページを、めくってみてください。</span></p>
+
+      <div class="swipe">
+        <div class="sw">
+          <p class="q">「いまの我が家は、<br>どんな状態なんだろう。」</p>
+          <figure><img src="images/doc-dash-10.png" alt="現在地サマリー" loading="lazy"></figure>
+          <div class="tt">▶ 現在地サマリー</div>
+        </div>
+        <div class="sw">
+          <p class="q">「私は、何歳まで<br>働けばいいんだろう。」</p>
+          <figure><img src="images/doc-suii-12.png" alt="100年分の資産推移" loading="lazy"></figure>
+          <div class="tt">▶ 100年分の資産推移</div>
+        </div>
+        <div class="sw">
+          <p class="q">「毎年、いくら<br>手元に残るんだろう。」</p>
+          <figure><img src="images/doc-cf-13.png" alt="60年分の収支" loading="lazy"></figure>
+          <div class="tt">▶ 60年分の収支</div>
+        </div>
+        <div class="sw">
+          <p class="q">「子ども2人、私立でも<br>大丈夫なんだろうか。」</p>
+          <figure><img src="images/doc-kyoiku-04.png" alt="教育費の山" loading="lazy"></figure>
+          <div class="tt">▶ 教育費の山</div>
+        </div>
+        <div class="sw">
+          <p class="q">「一生で、いくら<br>使うことになるんだろう。」</p>
+          <figure><img src="images/doc-shishutsu-08.png" alt="支出の中身" loading="lazy"></figure>
+          <div class="tt">▶ 支出の中身</div>
+        </div>
+        <div class="sw">
+          <p class="q">「家の買い替えは、<br>いつなら耐えられる？」</p>
+          <figure><img src="images/doc-event-09.png" alt="ライフイベント表" loading="lazy"></figure>
+          <div class="tt">▶ ライフイベント表</div>
+        </div>
+        <div class="sw">
+          <p class="q">「僕が倒れたら、<br>家族はどうなるんだろう。」</p>
+          <figure><img src="images/doc-hosho-20.png" alt="万一のときの過不足" loading="lazy"></figure>
+          <div class="tt">▶ 万一のときの過不足</div>
+        </div>
+        <div class="sw">
+          <p class="q">「老後、資産は<br>どう動いていくんだろう。」</p>
+          <figure><img src="images/doc-cfgraph-15.png" alt="取り崩しの推移" loading="lazy"></figure>
+          <div class="tt">▶ 取り崩しの推移</div>
+        </div>
+        <div class="sw last">
+          <p class="q">　</p>
+          <figure><div class="lz"><b>あなたの質問は、<br>どれですか。</b><span>ここに並ぶページは、<br>人によって変わります。</span></div></figure>
+          <div class="tt">▶ 30分の初回相談で決めます</div>
+        </div>
+      </div>
+      <p class="swhint">← 横にスワイプできます →</p>
+
+      <p class="lead" style="text-align:center;margin-top:30px;">中でも、ほとんどの方が<br>いちばん先に開くのが、この5ページです。</p>
 
       <!-- 01 何歳まで働けばいいのか -->
       <div class="ic" style="margin-top:26px;">
